@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaOfCircleANDReturnObj", "AreaOfCircleANDReturnObj\AreaOfCircleANDReturnObj.csproj", "{E3576729-15B9-4AB5-B1AA-23BAC84CA07B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3576729-15B9-4AB5-B1AA-23BAC84CA07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3576729-15B9-4AB5-B1AA-23BAC84CA07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3576729-15B9-4AB5-B1AA-23BAC84CA07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3576729-15B9-4AB5-B1AA-23BAC84CA07B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7369D521-84FF-4141-8119-8D8630A17D25}
+	EndGlobalSection
+EndGlobal
