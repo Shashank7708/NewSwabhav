@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIPPrincipalViolation", "DIPPrincipalViolation\DIPPrincipalViolation.csproj", "{C90EF843-A570-4C1C-98DB-14E51DD91071}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C90EF843-A570-4C1C-98DB-14E51DD91071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C90EF843-A570-4C1C-98DB-14E51DD91071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C90EF843-A570-4C1C-98DB-14E51DD91071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C90EF843-A570-4C1C-98DB-14E51DD91071}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53B5582A-5157-40AB-89B8-6BEF0B736CC6}
+	EndGlobalSection
+EndGlobal
