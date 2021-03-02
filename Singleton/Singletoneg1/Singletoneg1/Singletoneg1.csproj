@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C90EF843-A570-4C1C-98DB-14E51DD91071}</ProjectGuid>
+    <ProjectGuid>{EFA9F319-56F1-4B3C-AE75-AB38344C11C6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DIPPrincipalViolation</RootNamespace>
-    <AssemblyName>DIPPrincipalViolation</AssemblyName>
+    <RootNamespace>Singletoneg1</RootNamespace>
+    <AssemblyName>Singletoneg1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ErrorHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaxCalculation.cs" />
-    <Compile Include="TxTLogger.cs" />
-    <Compile Include="XmlLogger.cs" />
+    <Compile Include="Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

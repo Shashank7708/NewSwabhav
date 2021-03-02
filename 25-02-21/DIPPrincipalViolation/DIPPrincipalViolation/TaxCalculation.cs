@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DIPPrincipalViolation
 {
-    class TaxCalculation
+  abs  class TaxCalculation
     {
         public LogType _log;
         public TaxCalculation(LogType log)
@@ -24,15 +24,8 @@ namespace DIPPrincipalViolation
             }
             catch(Exception e)
             {
-                if (this.getLog == LogType.TXT)
-                {
-                    TxTLogger txtf = new TxTLogger();
-                    txtf.log(e.Message);
-                    return -1;
-                }
-                XmlLogger xm = new XmlLogger();
-                xm.log(e.Message);
-                return -1;
+                ErrorHandler eh1 = new ErrorHandler();
+                return eh1.error(e,getLog);
             }
         }
 

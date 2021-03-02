@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C90EF843-A570-4C1C-98DB-14E51DD91071}</ProjectGuid>
+    <ProjectGuid>{B5AC7611-1EAD-44F7-B0EE-F3662A636599}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DIPPrincipalViolation</RootNamespace>
-    <AssemblyName>DIPPrincipalViolation</AssemblyName>
+    <RootNamespace>StrategyPatternPlusSubtract</RootNamespace>
+    <AssemblyName>StrategyPatternPlusSubtract</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ErrorHandler.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="OperationAdd.cs" />
+    <Compile Include="OperationMultiply.cs" />
+    <Compile Include="OperationSubtract.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaxCalculation.cs" />
-    <Compile Include="TxTLogger.cs" />
-    <Compile Include="XmlLogger.cs" />
+    <Compile Include="Strategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
