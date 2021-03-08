@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTimer", "EventTimer\EventTimer.csproj", "{215088B9-0155-4F87-84DA-A2061F4DF4FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{215088B9-0155-4F87-84DA-A2061F4DF4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215088B9-0155-4F87-84DA-A2061F4DF4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215088B9-0155-4F87-84DA-A2061F4DF4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215088B9-0155-4F87-84DA-A2061F4DF4FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46F15C7B-EC35-4A54-8EE6-A76C1EACC1B4}
+	EndGlobalSection
+EndGlobal
