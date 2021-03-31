@@ -6,8 +6,10 @@
 <h2>Print Name from Textbox</h2>
 
 @using(Html.BeginForm("print", "Home", FormMethod.Post))
-{
-    
+{   <div>
+    Id:<input type="number" name="id" value="" />
+    </div>
+    <br />
     <div>
         name:<input type="text" name="name" value="" />
     </div>
@@ -21,6 +23,6 @@
 {
     for (int i = 0; i < 5; i++)
     {
-    <p>@ViewBag.name</p><br />
+    <p>Id: @ViewBag.id  Name:@ViewBag.name</p><br />
     }
 }

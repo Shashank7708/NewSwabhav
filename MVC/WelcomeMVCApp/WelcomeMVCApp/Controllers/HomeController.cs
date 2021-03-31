@@ -9,6 +9,7 @@ namespace WelcomeMVCApp.Controllers
     public class HomeController : Controller
     {
         bool flag = false;
+        
        public HomeController()
         {
             
@@ -41,7 +42,23 @@ namespace WelcomeMVCApp.Controllers
         {
             flag = true;
             ViewBag.flag = flag;
+            ViewBag.id = int.Parse(frm["id"]);
             ViewBag.name =frm["name"].ToString() ;
+            return View();
+        }
+
+        public ActionResult displayDate()
+        {
+            ViewBag.flag = flag;
+            return View();
+        }
+
+            [HttpPost]
+        public ActionResult displayDate(FormCollection frm)
+        {
+            flag = true;
+            ViewBag.flag = flag;
+            ViewBag.name = frm["name"].ToString();
             return View();
         }
     }

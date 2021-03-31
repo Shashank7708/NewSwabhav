@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "displayDate";
+}
+
+<h2>displayDate</h2>
+
+@using (Html.BeginForm("displayDate", "Home", FormMethod.Post))
+{
+    <div>
+        name:<input type="text" name="name" id="name" value="" />
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+}
+
+
+
+
+@if(ViewBag.flag){ 
+    DateTime date = DateTime.Now;
+    int hour = date.Hour;
+    if (hour >= 6 && hour < 11)
+    {
+        <p>Good Morning @ViewBag.name</p>
+    }
+    else if (hour >= 11 && hour < 18)
+    {
+        <p>Good Afternoon! @ViewBag.name</p>
+    }
+    else if (hour >= 18 && hour < 20)
+    {
+        <p>Good Evening! @ViewBag.name</p>
+    }
+    else
+    {
+        <p>Good Night! @ViewBag.name</p>
+    }
+    <p>Current-DateTime:@DateTime.Now </p>
+}
