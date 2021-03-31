@@ -1,0 +1,34 @@
+<DOCTYPE html>
+    <html>
+        <head>
+            <style>
+                ol,
+            </style>
+        </head>
+        <body>
+        <div id="demo">
+            <h1 id="para">Drop Down list</h1>
+            <p id="para">Hello World</p>
+            </div>
+            <p id="para">Click Here to chane the Color:</p>
+            <ol type="1">
+            <li onclick="ChangeToGreen()">Green</li>
+            <li onclick="ChangeToBlue()">Blue</li>
+            <li onclick="CHangeToRed()">Red</li>
+            </ol>
+            <script>
+                function ChangeToGreen(){
+                    var x=document.getElementById("demo");
+                    x.style.color="green";
+                }
+                function ChangeToBlue(){
+                    var x=document.getElementById("demo");
+                    x.style.color="blue";
+                }
+                function CHangeToRed(){
+                    var x=document.getElementById("demo");
+                    x.style.color="red";
+                }
+            </script>
+        </body>
+    </html>

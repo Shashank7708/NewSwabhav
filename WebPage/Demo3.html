@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        p{
+            color: seagreen;
+        }
+    </style>
+<body>
+
+<h2>Finding HTML Elements by Tag Name</h2>
+
+<p>Hello World!</p>
+<p>Namee Tag</p>
+<p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+
+<p id="demo"></p>
+<h2 id="info"></h2>
+
+<script>
+var x = document.getElementsByTagName("p");
+document.getElementById("demo").innerHTML = 
+'The text in first paragraph (index 0) is: ' + x[0].innerHTML;
+document.getElementById("info").innerHTML='This is eg of (index 1): '+x[1].innerHTML;
+</script>
+
+</body>
+</html>

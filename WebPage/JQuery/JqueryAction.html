@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Hide And Show Using JQuery</h2>
+    <p>Hello </p>
+    <p id="demo"> I am Paragraph</p>
+    <button>I am a Button</button>
+    <div id="demo">
+        Hello! I am learning Chsarp And Javascript from Sonam Ma'am.<br>
+        
+             First of all I would like to Thank you Ma'am for making us what we are today.<br>
+              Thank you for inspiring and motivationg us. <br>
+              We truly are grateful to you for guiding us and taking us to the right path.
+    </div>
+    <button id='hide'>Hide</button>
+    <button id='show'>Show</button>
+
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            console.log("This is normal Js Line");
+        console.log("Hidng Infomation")
+        $('p').click();
+        $('p').click(function () {
+            console.log("Clicked on paragraph ",this);
+            
+        
+        })
+        //$('button').click(function () {
+      //      alert("Clicked On Button");
+//
+       // });
+        $('#demo').click();
+
+
+       //Double ClickEvent
+        $('button').dblclick(function () {
+           alert("DOuble Click Event On Button");
+
+        });
+        
+        
+
+
+       //MouseOver 
+       $('button').mouseover(function () {
+          console.log("MouseOver Event On Button");
+
+       });
+
+       //Mouse Hover Event
+       $('button').hover(function(){
+           alert("Mouse Hover Event On Button");
+       })
+       function a(){
+           console.log("Hovering on btn")
+       }
+       a();
+
+
+
+
+    });
+        
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+    var foo=10;
+    console.log(foo);
+    document.writeln(this== document);
+    document.writeln("foo:"+foo);
+    document.writeln("<br /");
+    console.log("<br /");
+    foo="abc";
+    console.log("Foo: "+foo);
+    console.log(typeof foo);
+    console.log();
+    console.log("<br /");
+
+    foo=20;
+    console.log("Foo: "+foo);
+    console.log(typeof foo);
+    console.log();
+    console.log("<br /");
+
+    foo=true;
+    console.log("Foo: "+foo);
+    console.log(typeof foo);
+    console.log();
+    console.log("<br /");
+
+    foo=[];
+    console.log("[] :"+typeof foo);
+    console.log();
+    console.log("<br /");
+
+    foo={};
+    console.log("{} :"+typeof foo);
+    console.log();
+    console.log("<br /");
+    
+    console.log("document == window.document:  "+(document == window.document));
+    console.log("location == window.location:  "+(location == window.location));
+    console.log("console == window.console:  "+(console == window.console));   
+
+
+    console.log("foo == window.foo:  "+(foo == window.foo));
+    console.log("Window: "+(window));
+
+    alert("You made your fist javascript!");
+    </script>
+
+</body>
+</html>

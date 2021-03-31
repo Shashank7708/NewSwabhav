@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        Hello! I am learning Chsarp And Javascript from Sonam Ma'am.<br>
+
+        First of all I would like to Thank you Ma'am for making us what we are today.<br>
+        Thank you for inspiring and motivationg us. <br>
+        We truly are grateful to you for guiding us and taking us to the right path.
+    </div>
+    <button id='hide'>Hide</button>
+    <button id='show'>Show</button>
+    <button id='HideAndShow'>HideOrSHow</button>
+    <button id="toggle">Toggle</button>
+    <button id="animate">Animate</button>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            console.log("Hide And SHow");
+            //Hide Pararaph
+            $('#hide').click(function () {
+                $('#demo').hide();
+            });
+            //Show Paragraph
+            $('#show').click(function () {
+                $('#demo').show()
+            });
+            //Hide On single Click And Show On Double Click
+            $('#HideAndShow').on(
+                {
+                    click: function () {
+                        $('#demo').hide(1000);
+                    },
+                    dblclick: function () {
+                        $('#demo').show(1000, function(){
+                            console.log("Show");
+                        })
+                    } 
+                })
+                //Toggle 
+                $(toggle).click(function(){
+                    $('#demo').toggle(1000);
+                })
+                $('#animate').click(function(){
+            $('#demo').animate(
+                {
+                    opacity:0.4,
+                    width:'300px',
+                    height:'350px'
+
+                });
+            })
+
+        });
+    </script>
+</body>
+
+</html>

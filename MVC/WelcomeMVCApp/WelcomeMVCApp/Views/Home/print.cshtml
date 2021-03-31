@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "PrintFromTextbox";
+}
+
+<h2>Print Name from Textbox</h2>
+
+@using(Html.BeginForm("print", "Home", FormMethod.Post))
+{
+    
+    <div>
+        name:<input type="text" name="name" value="" />
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Sumbit" />
+    </div>
+}
+
+@if (ViewBag.flag)
+{
+    for (int i = 0; i < 5; i++)
+    {
+    <p>@ViewBag.name</p><br />
+    }
+}

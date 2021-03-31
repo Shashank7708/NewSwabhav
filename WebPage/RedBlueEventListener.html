@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 onclick="this.innerHTML='Ooops!'">Click on this text!</h1>
+<p onclick="this.innerHTML='OnClick InnerHtml'">Click to See Onclick</p>
+
+<button onclick="Change()" id="demo1" value="red">red</button>
+<button onclick="Change()" id="demo1" value="blue">blue</button>
+
+<script>
+    var selector = document.getElementById("color-selector");
+   selector.addEventListener('change',(e)=>{
+           document.getElementById("selectDiv").style.backgroundColor = e.target.value;
+</script>
+</body>
+</html>
+
+//<select id="color-selector" data-selector="selector">
+  //  <option value="red">red</option>

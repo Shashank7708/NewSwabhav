@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function Student(pid, pname, pcgpa) {
+            id = pid
+            name = pname
+            cgpa = pcgpa
+            this.getDetails = function () {
+                return "Id: " + id + " Name: " +name + " Cgpa: " + cgpa
+            }
+        }
+        var s1 = new Student(101, "ABC", 5.5)
+        console.log(s1.getDetails())
+        console.log(s1)
+        var s2 = new Student(102, "DEF", 6.5)
+        console.log(s2.getDetails())
+        console.log(s2)
+    </script>
+</body>
+</html>
+

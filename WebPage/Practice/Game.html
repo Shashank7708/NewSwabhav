@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css" type="text.css"/>
+    <style>
+        .numberCircle {
+            border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    margin: 15px 15px;
+    background: #fff;
+    border: 2px solid green;
+    color: #666;
+    text-align: center;
+    float: left;
+    font: 32px Arial, sans-serif;
+}
+    </style>
+</head>
+<body style="background-color:black">
+    <h2 style="color: greenyellow" id="demo">
+        <p>1)Pick a ball from the list<br>
+        2)If Selected Ball turns red that means blue ball is after selected ball<br>
+    3)If selected ball turns green that means blue ball is before it</p>
+    </h2>
+    <button onclick="HideRules()">Start</button>
+  <button onclick="Show-Numbers()">HideRule</button>  
+ <div class="numberCircle" id="1" value="1">1</div>
+<div class="numberCircle" id="2" value="2">2</div>
+<div class="numberCircle" id="3" value="3">3</div>
+<div class="numberCircle" id="4" value="4">4</div>
+<div class="numberCircle" id="5" value="5">5</div>
+<div class="numberCircle" id="6" value="6">6</div>
+<div class="numberCircle" id="7" value="7">7</div>
+<div class="numberCircle" id="8" value="8">8</div>
+<div class="numberCircle" id="9" value="9">9</div>
+<div class="numberCircle" id="10" value="10">10</div>
+<div class="numberCircle" id="11" value="11">11</div>
+<div class="numberCircle" id="12" value="12">12</div>
+<div class="numberCircle" id="13" value="13">13</div>
+<div class="numberCircle" id="14" value="14">14</div>
+<div class="numberCircle" id="15" value="15">15</div>
+<div class="numberCircle" id="16" value="16">16</div>
+<div class="numberCircle" id="17" value="17">17</div>
+<div class="numberCircle" id="18" value="18">18</div>
+<div class="numberCircle" id="19" value="19">19</div>
+<div class="numberCircle" id="20" value="20">20</div>
+<div class="numberCircle" id="21" value="21">21</div>
+<div class="numberCircle"  id="22"value="22">22</div>
+<div class="numberCircle" id="23" value="23">23</div>
+<div class="numberCircle" id="24" value="24">24</div>
+<div class="numberCircle"  id="25"value="25">25</div>
+<div class="numberCircle" id="26" value="26">26</div>
+<div class="numberCircle"  id="27"value="27">27</div>
+<div class="numberCircle"  id="28"value="28">28</div>
+<div class="numberCircle"  id="29"value="29">29</div>
+<div class="numberCircle" id="30" value="30">30</div>
+<div class="numberCircle" id="31" value="31">31</div>
+<div class="numberCircle" id="32" value="32">32</div>
+<div class="numberCircle" id="33" value="33">33</div>
+<div class="numberCircle" id="34" value="34">34</div>
+<div class="numberCircle" id="35" value="35">35</div>
+<div class="numberCircle" id="36" value="36">36</div>
+<div class="numberCircle" id="37"value="37">37</div>
+<div class="numberCircle" id="38" value="38">38</div>
+<div class="numberCircle" id="39" value="39">39</div>
+<div class="numberCircle" id="40" value="40">40</div>
+<div class="numberCircle" id="41" value="41">41</div>
+<div class="numberCircle" id="42" value="42">42</div>
+<div class="numberCircle" id="43" value="43">43</div>
+<div class="numberCircle" id="44" value="44">44</div>
+<div class="numberCircle" id="45" value="45">45</div>
+<div class="numberCircle" id="46" value="46">46</div>
+<div class="numberCircle" id="47" value="47">47</div>
+<div class="numberCircle" id="48" value="48">48</div>
+<div class="numberCircle" id="49" value="49">49</div>
+<div class="numberCircle" id="50" value="50">50</div>
+
+
+
+
+
+
+
+ <!---  <script>
+        var incr=0;
+        while(incr<3){
+    document.querySelectorAll("div").forEach((item)=>
+    {
+        item.addEventListener('click',()=>{
+           var value1= item.getAttribute('value');
+            if(value1>30){
+                item.style.backgroundColor='red';
+            }
+            else if(value1<30){
+                item.style.backgroundColor='green';
+            }
+            else{
+                item.style.backgroundColor='blue';
+            }
+            incr++;
+
+        });
+    })
+}
+-->
+ 
+<script>
+   document.querySelectorAll("div").forEach((item)=>{
+        item.addEventListener('click',()=>{
+        var b=document.getElementById(item.id).getAttribute('value');
+        var id1=document.getElementById(item.id);
+        if(b<30){
+            id1.style.backgroundColor="red";
+        }
+        else if(b>30){
+            id1.style.backgroundColor="green";
+        }
+        else{
+            id1.style.backgroundColor="blue";
+            alert("Congrulation! You have won the game ");
+        }
+        
+        });
+    })
+    var display=document.getElementById()
+    
+    function HideRules(){
+        document.getElementById("demo").style.display="none";
+    }
+    function Hide
+</script>
+
+</body>
+</html>

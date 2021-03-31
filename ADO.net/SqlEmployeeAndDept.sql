@@ -1,0 +1,154 @@
+create table employee(
+id int PRIMARY KEY,
+name varchar(20),
+
+);
+
+insert into employee VALUES(1,'Sumit');
+insert into employee VALUES(2,'Rohan');
+insert into employee values(3,'Vishal');
+
+delete from employee
+where employee.id=3;
+
+select * from employee;
+
+update employee
+set id=4
+where name='Rohan';
+
+CREATE TABLE DEPT (
+ DEPTNO              integer NOT NULL,
+ DNAME               varchar(14),
+ LOC                 varchar(13),
+ CONSTRAINT DEPT_PRIMARY_KEY PRIMARY KEY (DEPTNO));
+
+ INSERT INTO DEPT VALUES (10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES (30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES (40,'OPERATIONS','BOSTON');
+
+select * from DEPT;
+
+drop table employee;
+
+CREATE TABLE EMP (
+ EMPNO               integer NOT NULL,
+ ENAME               varchar(10),
+ JOB                 varchar(9),
+ MGR                 integer CONSTRAINT EMP_SELF_KEY REFERENCES EMP (EMPNO),
+ HIREDATE            DATEtime,
+ SAL                 money,
+ COMM                money,
+ DEPTNO              integer NOT NULL,
+ CONSTRAINT EMP_FOREIGN_KEY FOREIGN KEY (DEPTNO) REFERENCES DEPT (DEPTNO),
+ CONSTRAINT EMP_PRIMARY_KEY PRIMARY KEY (EMPNO));
+
+
+ INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,'17-NOV-81',5000,NULL,10);
+INSERT INTO EMP VALUES (7698,'BLAKE','MANAGER',7839,'1-MAY-81',2850,NULL,30);
+INSERT INTO EMP VALUES (7782,'CLARK','MANAGER',7839,'9-JUN-81',2450,NULL,10);
+INSERT INTO EMP VALUES (7566,'JONES','MANAGER',7839,'2-APR-81',2975,NULL,20);
+INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,'28-SEP-81',1250,1400,30);
+INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,'20-FEB-81',1600,300,30);
+INSERT INTO EMP VALUES (7844,'TURNER','SALESMAN',7698,'8-SEP-81',1500,0,30);
+INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,'3-DEC-81',950,NULL,30);
+INSERT INTO EMP VALUES (7521,'WARD','SALESMAN',7698,'22-FEB-81',1250,500,30);
+INSERT INTO EMP VALUES (7902,'FORD','ANALYST',7566,'3-DEC-81',3000,NULL,20);
+INSERT INTO EMP VALUES (7369,'SMITH','CLERK',7902,'17-DEC-80',800,NULL,20);
+INSERT INTO EMP VALUES (7788,'SCOTT','ANALYST',7566,'09-DEC-82',3000,NULL,20);
+INSERT INTO EMP VALUES (7876,'ADAMS','CLERK',7788,'12-JAN-83',1100,NULL,20);
+INSERT INTO EMP VALUES (7934,'MILLER','CLERK',7782,'23-JAN-82',1300,NULL,10);
+
+select * from EMP;
+
+select * 
+from EMP
+order by EMP.ENAME;
+
+select * 
+from EMP
+where EMP.DEPTNO=10;
+
+select * 
+from EMP
+where EMP.DEPTNO=10 and EMP.DEPTNO=20;
+
+select * 
+from EMP
+where EMP.JOB='CLERK';
+
+select * 
+from EMP
+where EMP.JOB =(
+select EMP.JOB
+from EMP
+where EMP.ENAME='SMITH'
+);
+
+select * 
+from EMP
+where EMP.DEPTNO=(
+
+select EMP.DEPTNO
+from EMP
+where EMP.ENAME='SCOTT'
+);
+
+select EMP.ENAME,DEPT.DEPTNO,DEPT.DNAME
+from DEPT
+left join EMP
+on DEPT.DEPTNO=EMP.DEPTNO;
+
+
+select *
+from DEPT
+where DEPTNO Not in(
+select EMP.DEPTNO
+from EMP
+);
+
+--Display Departmentwise and headCount
+select COUNT(EMP.EMPNO) as NoOfEMployee,EMP.DEPTNO
+from EMP
+group By emp.DEPTNO;
+
+--Display no of Employee
+select count(EMP.EMPNO)
+from EMP;
+
+--Display Sum of Salaries of Employee
+select sum(EMP.SAL)
+from EMP;
+
+--Display Average of Slalaries
+select AVG(EMP.SAL)
+from EMP;
+
+--display Sum,AVG and count Of Employee
+select sum(EMP.SAL)as Sum,AVG(EMP.SAL) as AverageSal,count(EMP.EMPNO)as NoOfEmployee
+from EMP;
+
+--Display Job Wise Count
+select COUNT(EMP.EMPNO) as Count,EMP.JOB
+from EMP
+group by EMP.JOB;
+
+--display Departmentwise and Jobwise HeadCount
+select  EMP.DEPTNO,EMP.JOB,COUNT(EMP.EMPNO)
+from EMP
+group by EMP.DEPTNO,EMP.JOB
+order by EMP.DEPTNO;
+
+SELECT DEPT.DNAME,DEPTNO
+FROM DEPT 
+WHERE (
+SELECT COUNT(*) 
+FROM  EMP 
+WHERE EMP.DEPTNO=DEPT.DEPTNO)>2;
+
+--Display Deptwise employee whose count >2 andare in dept 10,20
+select COUNT(EMP.EMPNO),EMP.DEPTNO
+from EMP
+group by EMP.DEPTNO
+having COUNT(EMP.EMPNO)>2;

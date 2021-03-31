@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="demo()">Hello</button>
+    <button onclick="Infinite()">Time</button>
+
+    <script>
+        function demo(){
+            console.log("hello");
+        }
+       
+        function Infinite(){
+            
+                setInterval(() => {
+                    var currentdate=new Date();
+                console.log("Date&Time: ",currentdate.getFullYear(),"/", currentdate.getMonth(),"/",currentdate.getDate()," ",
+                currentdate.getHours(),":",currentdate.getMinutes,":",currentdate.getMinutes(),":",currentdate.getMilliseconds());
+                    
+                    
+                }, 2000);
+            }
+                   
+            
+        
+    </script>
+
+</body>
+</html>

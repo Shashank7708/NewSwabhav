@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th,tr{
+            border: 2px solid;
+        }
+    </style>
+</head>
+<body>
+
+<!---   <table>
+        <tr>
+        <th>Name</th>
+        <th>Capital</th>
+        <th>Flag</th>
+        </tr>
+    </table>
+-->
+<button id="demo">ClickHere</button>
+
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+    //var text= $.getJSON("https://restcountries.eu/rest/v2/all",function(data,status){
+   // for(var i=0;i<data.length;i++)
+    //{
+      //  var mark='<tr><td>'+data[i].name+'</td><td>'+data[i].capital+'</td><td><img src='+ $data[i].flag+"><\td><\tr>";
+        //    $('table').append(mark);
+
+    //}
+            
+      //  });
+        
+        $('#demo').click(function(){
+        $.post("http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/",{Name:"Rahul",rollno:"43"},function(data,status)
+        {   
+            alert("Post Status: "+status);
+        })
+    });
+
+    });
+        
+    </script>
+</body>
+</html>

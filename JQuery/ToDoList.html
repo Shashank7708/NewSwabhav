@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ToDo List</title>
+   
+<style>
+form{
+    color: wheat;
+}
+
+    table,tr,th,td{
+        border: 1px solid;
+        color: red;
+        background-color:rgb(207, 184, 153);
+    }
+</style>
+
+</head>
+
+<body style="background-color: black;">
+    <form name="toDoList">
+        <label for="inpu">Item</label>
+        <input type="text" name="ListItem" id="hello" value="item"><br>
+        <br>
+        <label for="input">Date</label>
+        <input type="date" name="h" id="demo1" >
+    </form>
+    <button id="but">Add</button>
+    <br>
+    <br>
+    <table id="demo">
+        <tr>
+            <th>Id</th>
+            <th>ToDo</th>
+            <th>Date</th>
+            
+            
+        </tr>
+    </table>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            var id = 0;
+        
+                $('#but').click(
+                    function () {
+                       var value = $("#hello").val(); 
+                       var value1=$('#demo1').val();
+                        $('#demo').append('<tr><td>'+(id++) +'</td><td>'+ value+'</td><td>'+value1 +'</td></tr>');
+                    });
+
+            
+        });
+    </script>
+
+</body>
+
+</html>

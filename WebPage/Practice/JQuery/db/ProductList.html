@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product</title>
+<meta name="viewport" content="user-scalable=no,width=device-width"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body style="margin:30px" style="background-color:red;">
+
+<div class="container">
+	
+<div class="row">
+<form>
+	<fieldset>
+		<legend>Name</legend>
+		<input type="text"  name="" id="name">
+
+		<legend>Cost</legend>
+		<input type="number"  id="cost" name="cost">
+        <legend>Discount</legend>
+        <input type="number" id="discount" name="discount">
+<br>
+<br>
+
+<button type="button" id="insert" class="btn btn-success">Insert</button>
+
+<button type="button" id="create" class="btn btn-success">Create</button>
+
+
+
+<button type="button" id="list" class="btn btn-success">GetProduct</button>
+
+
+	</fieldset>
+</form>
+
+<hr>
+<h4 class="hide">Items:</h4>
+<table class="table table-bordered table-hover"  id="itemlist">
+	
+</table>
+
+
+
+
+</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+var db=openDatabase("itemDB","1.0","itemDB",65535);
+$(function(){
+
+loadData();
+
+
+$("#create").click(function(){
+
+db.transaction(function(transaction){
+	var sql="CREATE TABLE items "+
+	"(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
+	"name varchar(20) NOT NULL,"+
+	"cost decimal(10,3),"+
+    "Discount INTEGER)";
+	transaction.executeSql(sql,undefined,function(){
+		alert("Table is created successfully");
+	},function(){
+		alert("Table is already being created");
+	})
+});
+});
+// to remove
+
+$("#remove").click(function(){
+
+if(!confirm("Are you sure to delete this table?","")) return;;
+db.transaction(function(transaction){
+	var sql="DROP TABLE items";
+	transaction.executeSql(sql,undefined,function(){
+		alert("Table is deleted successfully")
+	},function(transaction,err){
+		alert(err.message);
+	})
+});
+});
+
+
+//to insert
+
+$("#insert").click(function(){
+var item=$("#name").val();
+var qty=$("#cost").val();
+var discount=$("#discount").val();
+qty=(discount*qty)/100;
+
+db.transaction(function(transaction){
+var sql="INSERT INTO items(name,cost,Discount) VALUES(?,?,?)";
+transaction.executeSql(sql,[item,qty,discount],function(){
+	alert("New item is added successfully");
+},function(transaction,err){
+	alert(err.message);
+})
+})
+
+})
+
+
+//to fetch
+
+$("#list").click(function(){
+    $(".hide").show();
+loadData();
+})
+
+function loadData(){
+		$("#itemlist").children().remove();
+	db.transaction(function(transaction){
+		var sql="SELECT * FROM items ORDER BY id";
+		transaction.executeSql(sql,undefined,function(transaction,result){
+if(result.rows.length){
+
+for(var i=0;i<result.rows.length;i++){
+	var row=result.rows.item(i);
+	var id=row.id;
+	var cost=row.cost;
+    var name=row.name;
+	$("#itemlist").append('<tr><td>'+id+'</td><td>'+name+'</td><td>'+cost+'</td></tr>');
+}
+}else{
+	$("#itemlist").append('<tr><td colspan="3" align="center">No Item Found</td></tr>');
+}
+
+
+		},function(transaction,err){
+			alert('No table found. Click on "Create Table" to create table now');
+		})
+	})
+}
+
+})
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

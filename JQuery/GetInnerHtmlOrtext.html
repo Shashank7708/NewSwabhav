@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id='body'>
+    <div id="demo">
+        Change Color using Jquery
+        Hello! I am learning Chsarp And Javascript from Sonam Ma'am.<br>
+
+        First of all I would like to Thank you Ma'am for making us what we are today.<br>
+        Thank you for inspiring and motivationg us. <br>
+        We truly are grateful to you for guiding us and taking us to the right path.
+    </div>
+    <button id="but1">GetInnerText</button>
+    <button id="but2">GetBodyCode</button>
+    <button id='but3'>Restore</button>
+    <button id="change">ChangeColor</button>
+    <script src="jquery.js"></script>
+    
+    <script>
+        $(document).ready(function()
+        {   var info=$('#demo').text();
+            $('#but1').on(
+               {
+                click:function()
+                {   console.log("First Getting InnerText And Changing")
+                   console.log( $('#demo').text());
+                },
+                dblclick:function(){
+                    
+                    $('#demo').text("Hello I Changed The text");
+                }
+               })
+               $('#restore').click(function(){
+                   $('#demo').text(info);
+               })
+
+               $('#but2').click(function()
+               {    console.log("Getting body code Using JQuery");
+                  var bodycode= $('#body').html();
+                  console.log(bodycode);
+               })
+               $('#change').click(function()
+               {  
+                $('#body').css('color','red');
+               })
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/NewSwabhav/WebPage/Practice/Storage.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="addBtn">count Here</button>
+        <h4>Count:<span id="countervalue">6</span></h4>
+    </div>
+   
+
+
+<script>
+    let addButton=document.getElementById("addBtn");
+    let resultselection=document.getElementById("countervalue");
+
+    if(localStorage.getItem("counter"==null)){
+        localStorage.setItem("counter",0);
+    }else{
+        resultselection.innerHTML=localStorage.getItem("counter");
+    }
+addButton.addEventListener('click',()=>{
+    let value=localStorage.getItem("counter");
+    localStorage.setItem("counter",++value);
+    console.log(localStorage.getItem("counter"));
+    resultselection.innerHTML=localStorage.getItem("counter");
+
+});
+
+</script>
+
+
+</body></html>

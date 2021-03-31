@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://smtpjs.com/v3/smtp.js"></script> 
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <title>Quiz-Game</title>
+</head>
+
+<body class="bg-primary">
+    <div class="container mb-3" >
+        <h1 class="display-1 text-center ">Quiz</h1>
+        <div class="jumbotron" id="div1">
+
+            <p class="text-primary">1.There are 5 Questions<br>2.Each question carries 1 marks<br>3.Maximum marks are 5
+                marks</p>
+                
+        </div>
+    
+        
+
+        <br>
+        <br>
+        <div class="jumbotron" id="div2" >
+            <form name="quiz" id="quiz" class="text-primary">
+                <div>
+                    <p>1.What is the best programming language in 2021?</p>
+                    <p><input type="radio" name="question1" value="Html" class="hover">Html</p>
+                    <p><input type="radio" name="question1" value="JavaScript">JavaScript</p>
+                    <p><input type="radio" name="question1" value="CSharp">CSharp</p>
+                    <p><input type="radio" name="question1" value="Java">Java</p>
+                </div>
+                <br>
+                <div>
+                    <p>2.What is the Capital Of India?</p>
+                    <p><input type="radio" name="question2" value="Mumbai">Mumbai</p>
+                    <p><input type="radio" name="question2" value="Jaipur">Jaipur</p>
+                    <p><input type="radio" name="question2" value="Delhi">Delhi</p>
+                    <p><input type="radio" name="question2" value="Nagpur">Nagpur</p>
+                </div>
+                <br>
+                <div>
+                    <p>3.What is the Capital Of Sri-lanka?</p>
+                    <p><input type="radio" name="question3" value="Colombo">Colombo</p>
+                    <p><input type="radio" name="question3" value="Colombia">Colommbia</p>
+                    <p><input type="radio" name="question3" value="kandy">kandy</p>
+                    <p><input type="radio" name="question3" value="Dambulla">Dambulla</p>
+                </div>
+                <br>
+                <div>
+                    <p>4.What is the name of Biggest Continent in the World?</p>
+                    <p><input type="radio" name="question4" value="Asia">Asia</p>
+                    <p><input type="radio" name="question4" value="America">America</p>
+                    <p><input type="radio" name="question4" value="Antartica">Antartica</p>
+                    <p><input type="radio" name="question4" value="Europe">Europe</p>
+                </div>
+                <br>
+                <div>
+                    <p>5.What is the name of heighest mountain Range in the World?</p>
+                    <p><input type="radio" name="question5" value="Triple-Crown">Triple-Crown</p>
+                    <p><input type="radio" name="question5" value="Everest">Everest</p>
+                    <p><input type="radio" name="question5" value="Elbrus">Elbrus</p>
+                    <p><input type="radio" name="question5" value="Kilimanjaro">Kilimanjaro</p>
+                </div>
+                <input class="bg-danger" type="button" value="Submit" onclick="Click()">
+            </form>
+        </div>
+    </div>
+    
+    <div class="jumbotron">
+<h1 id="result"></h1>
+
+</div>
+    <script src="jquery.js"></script>
+    <script>
+        
+        function Click() {
+        
+            var noOfCorrectAns = 0;
+            var q1 = document.quiz.question1.value;
+            var q2 = document.quiz.question2.value;
+            var q3 = document.quiz.question3.value;
+            var q4 = document.quiz.question4.value;
+            var q5 = document.quiz.question5.value;
+            if (q1 == "JavaScript") { ++noOfCorrectAns }
+            if (q2 == "Delhi") { ++noOfCorrectAns }
+            if (q3 == "Colombo") { ++noOfCorrectAns }
+            if (q4 == "Asia") { ++noOfCorrectAns }
+            if (q5 == "Everest") { ++noOfCorrectAns }
+            var div1=document.getElementById("div1");
+            var div2=document.getElementById("div2");
+            div1.style.display="none";
+            div2.style.display="none";
+            var result=document.getElementById("result");
+            result.style.color="red";
+        
+            result.innerText="Score: "+noOfCorrectAns;
+            
+             
+        }
+    </script>
+
+</body>
+
+</html>

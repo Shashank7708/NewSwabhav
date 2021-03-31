@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Cubes of No. in List</title>
+</head>
+<body>
+   <script src="jquery.js"></script>
+   <script>
+       $(document).ready(function()
+       {
+           console.log("Find Cubes of no in JQuery");
+           
+           var a=[1,2,3,4];
+        a.forEach(element => {
+            console.log(element);
+               
+           });
+           for(var i=0;i<a.length;i++){
+               a[i]=a[i]*a[i]*a[i];
+           }
+           console.log(a);
+       })
+   </script> 
+</body>
+</html>

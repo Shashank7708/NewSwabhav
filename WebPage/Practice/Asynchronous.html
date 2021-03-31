@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous</title>
+</head>
+
+<body>
+    <button onclick="fun1()">Fun1</button>
+<button onclick="fun2()">fun2</button>
+    <script>
+   function fun2(){
+        console.log("In Fun2");
+        setTimeout(() => {
+         console.log("After 3 sec Timeout");
+        },3000);
+    }
+        
+    
+    function fun1(){
+        console.log("Starting fun1");
+        
+        console.log("Ending Fun1");
+    }
+    
+</script>
+</body>
+</html>

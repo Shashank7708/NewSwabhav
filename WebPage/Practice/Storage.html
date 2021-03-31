@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+        <h4>Count:<span id="countervalue"></span></h4><br>
+        <br><br>
+        <button id="addBtn" >count Here To save</button>
+    </div>
+   
+
+
+<script>
+    let addButton=document.getElementById("addBtn");
+    let resultselection=document.getElementById("countervalue");
+
+    if(localStorage.getItem("counter"==null)){
+        localStorage.setItem("counter",0);
+    }else{
+        resultselection.innerHTML=localStorage.getItem("counter");
+    }
+addButton.addEventListener('click',()=>{
+    let value=localStorage.getItem("counter");
+    localStorage.setItem("counter",++value);
+    console.log(localStorage.getItem("counter"));
+    resultselection.innerHTML=localStorage.getItem("counter");
+
+});
+
+</script>
+
+</body>
+</html>
