@@ -1,6 +1,16 @@
-﻿
+﻿@model WelcomeMVCApp.Models.User
+
+@{ 
+    List<SelectListItem> departments = new List<SelectListItem>();
+    departments.Add(new SelectListItem{ Text = "IT",Value = "IT"});
+    departments.Add(new SelectListItem { Text = "HR", Value = "HR" });
+    departments.Add(new SelectListItem { Text = "MARKETING", Value = "MARKETING" });
+    departments.Add(new SelectListItem { Text = "SALARY", Value = "SALARY" });
+}
+
 @{
     ViewBag.Title = "PrintFromTextbox";
+
 }
 
 <h2>Print Name from Textbox</h2>
@@ -11,7 +21,10 @@
     </div>
     <br />
     <div>
-        name:<input type="text" name="name" value="" />
+        name:@Html.TextBox("name");
+    </div>
+    <div>
+        Departent:@Html.DropDownList("Technology", departments, "select");
     </div>
     <br />
     <div>
@@ -21,8 +34,26 @@
 
 @if (ViewBag.flag)
 {
-    for (int i = 0; i < 5; i++)
+    
+    <p> Name: @Model.Name</p>
+    <p>Id:@Model.id</p>
+    string val = ViewBag.tech;
+    int i;
+    if (val.Equals("IT"))
     {
-    <p>Id: @ViewBag.id  Name:@ViewBag.name</p><br />
+        i = 1;
     }
+    else if (val.Equals("HR"))
+    {
+        i = 2;
+    }
+    else if (val.Equals("MARKETING"))
+    {
+        i = 3;
+    }
+    else
+    {
+        i = 4;
+    }
+    <p>Selected Department:@val And Id : @i</p>
 }

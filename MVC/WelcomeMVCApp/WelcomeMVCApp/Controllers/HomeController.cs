@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WelcomeMVCApp.Models;
 
 namespace WelcomeMVCApp.Controllers
 {
@@ -42,9 +43,11 @@ namespace WelcomeMVCApp.Controllers
         {
             flag = true;
             ViewBag.flag = flag;
-            ViewBag.id = int.Parse(frm["id"]);
-            ViewBag.name =frm["name"].ToString() ;
-            return View();
+              ViewBag.tech = frm["Technology"].ToString();
+            //  ViewBag.id = int.Parse(frm["id"]);
+            var user = new User() { id = int.Parse(frm["id"]), Name = frm["name"].ToString() };
+          //  ViewBag.name =frm["name"].ToString() ;
+            return View(user);
         }
 
         public ActionResult displayDate()
