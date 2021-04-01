@@ -1,0 +1,47 @@
+﻿@model WelcomeMVCApp.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>validate</title>
+</head>
+<body>
+    <div>
+        <h1 style="color:firebrick">Form Validation</h1>
+        @using (Html.BeginForm("submit", "Home", FormMethod.Post))
+        {
+            <br />
+            <div>
+              Name:  @Html.TextBox("name")
+
+                <br />
+
+
+                @Html.ValidationMessage("name")
+                <br />
+            </div>
+            <div>
+              Email:  <input type="email" name="email" id="email" />
+                <br />
+
+                @Html.ValidationMessage("email")
+                <br />
+            </div>
+            <div>
+              Password:  <input type="password" name="password" id="password" />
+                <br />
+                @Html.ValidationMessage("password")
+                <br />
+</div>
+                <input type="submit" value="Submit" />
+
+                }
+            </div>
+</body>
+</html>

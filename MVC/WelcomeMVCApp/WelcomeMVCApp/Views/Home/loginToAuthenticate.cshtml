@@ -1,0 +1,49 @@
+﻿@model WelcomeMVCApp.Models.Login
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>loginToAuthenticate</title>
+</head>
+<body>
+    <h2 style="color:red">Create Account:</h2>
+    <div>
+        
+        @using (Html.BeginForm("authenticate", "Home", FormMethod.Post))
+        {
+            <br />
+            <div>
+                Name:  @Html.TextBox("name")
+
+                <br />
+
+
+                @Html.ValidationMessage("name")
+                <br />
+            </div>
+            <div>
+                Email:  <input type="email" name="email" id="email" />
+                <br />
+                <div style="color:red">
+                @Html.ValidationMessage("email")
+                    </div>
+                <br />
+            </div>
+            <div>
+                Password:  <input type="password" name="password" id="password" />
+                <br />
+                @Html.ValidationMessage("password")
+                <br />
+            </div>
+            <input type="submit" value="Submit" />
+
+        }
+    </div>
+    </div>
+</body>
+</html>

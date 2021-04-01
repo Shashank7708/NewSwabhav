@@ -98,6 +98,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,6 +110,13 @@
     <Content Include="Views\Home\hello.cshtml" />
     <Content Include="Views\Home\print.cshtml" />
     <Content Include="Views\Home\displayDate.cshtml" />
+    <Content Include="Views\Home\validate.cshtml" />
+    <Content Include="Views\Home\submit.cshtml" />
+    <Content Include="Views\Home\loginToAuthenticate.cshtml" />
+    <Content Include="Views\Home\authenticate.cshtml" />
+    <Content Include="Views\Home\loginfailed.cshtml" />
+    <Content Include="Views\Home\login.cshtml" />
+    <Content Include="Views\Home\accountcreated.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
