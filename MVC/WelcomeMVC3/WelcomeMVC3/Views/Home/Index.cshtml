@@ -1,0 +1,32 @@
+﻿@model WelcomeMVC3.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <div>
+                Id:<input type="number" value="" name="id" />;
+            </div>
+            <div>
+                Name:@Html.TextBox("name");
+            </div>
+            <input type="submit" value="Submit" />
+        }
+    </div>
+</body>
+</html>
+
+
+@{ 
+    <p>@ViewBag.name && @ViewBag.id</p>
+}

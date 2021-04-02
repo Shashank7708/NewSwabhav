@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout =null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>getEmp</title>
+</head>
+<body>
+    <div> 
+        <p>@Html.ActionLink("Create New","Create")</p>
+        <div class="jumbotron">
+            <table class="table table-success table-striped">
+                <tr>
+                   
+                    <th>Name</th>
+                    <th>Position</th>
+                    
+                    <th>Salary</th>
+                </tr>
+                @foreach (var emp in @ViewBag.li)
+                {
+                    <tr>
+                        
+                        <td>@emp.name</td>
+                        <td>@emp.position</td>
+                        
+                        <td style="background-color:@emp.salaryCol">@emp.salary</td>
+                    </tr>
+                }
+            </table>
+        </div>
+            
+    </div>
+</body>
+</html>

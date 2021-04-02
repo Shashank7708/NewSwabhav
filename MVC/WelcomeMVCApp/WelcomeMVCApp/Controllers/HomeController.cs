@@ -140,7 +140,7 @@ namespace WelcomeMVCApp.Controllers
         }
 
 
-        //Alert If Incorrect informatio
+        //Alert If Incorrect information
         public ActionResult loginfailed()
         {
             return View();

@@ -18,12 +18,12 @@
         {
             <br />
             <div>
-              Name:  @Html.TextBox("name")
+              Name:  @Html.TextBoxFor(m=>m.Name)
+                @Html.ValidationMessageFor(model=>model.Name,"",new { style="color:red"})
 
                 <br />
 
 
-                @Html.ValidationMessage("name")
                 <br />
             </div>
             <div>
