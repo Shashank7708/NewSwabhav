@@ -27,6 +27,7 @@ namespace MVCUsingService.Controllers
 
                 eobj.position = empobj.position;
                 eobj.salary = empobj.salary;
+                eobj.age = empobj.age;
                 if (empobj.salary < 20000)
                 {
                     eobj.salaryCol = "red";
@@ -59,11 +60,40 @@ namespace MVCUsingService.Controllers
                 ViewBag.name = e.name;
                 
             }
-            return View();        
-
+            return View();
+           
         }
-        
-      
+    [HttpGet]
+      public ActionResult Edit(int Id)
+        {
+            ServiceLayer service = new ServiceLayer();
+            var e = service.getAEmployee(Id);
+            var emp = new EmpEditVm{ id = e.id, name = e.name, position = e.position, salary = e.salary, age = e.age };
+            
+            ViewBag.emp = emp; 
+            return View();
+        }
+        [HttpPost]
+      public ActionResult Edit(EmpEditVm e)
+        {
+            ServiceLayer service = new ServiceLayer();
+            if (ModelState.IsValid)
+            {
+                var emp = new Employee { id = e.id, name = e.name, position = e.position, salary = e.salary, age = e.age };
+                service.Edit(emp);
+                ViewBag.name = e.name;
+            }
+            return View("submit");
+        }
+
+        public ActionResult Delete(int Id)
+        {
+            ServiceLayer service = new ServiceLayer();
+            service.Delete(Id);
+           
+            return RedirectToAction("submit", new { Message = "Deleted Successfully" });
+        }
+     
 
     }
 }

@@ -1,0 +1,39 @@
+﻿@model EmployeeListUsingMVC.Models.Subtask
+
+@{
+    ViewBag.Title = "Edit1";
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem { Text = "Done", Value = "Done" });
+    list.Add(new SelectListItem { Text = "Un-Done", Value = "Un-Done" });
+}
+
+<h2>Edit</h2>
+
+<div class="jumbotron">
+    <div class="container">
+        <form action="/Home/Edit1" method="post">
+            Main-Task Name: <input type="text" name="parentname" readonly="readonly" value="@Model.Task.name" />
+            <br />
+            <br />
+            Id:<input type="number" name="id" value="@Model.id" readonly="readonly" />
+            <br />
+            <br />
+            Name: <input type="text" name="name" value="@Model.name" />
+            <br />
+            <br />
+            Date: <input type="text" name="date" value="@Model.date" />
+            <br />
+            <br />
+            Status: @Html.DropDownList("status", list, "Select")
+            <br />
+            <br />
+            <input type="submit" value="Save" />
+
+        </form>
+    </div>
+</div>
+
+<p class="bg-success text-white">@ViewBag.Message</p>
+<div class="text-primary bg-success">
+    @Html.ActionLink("Back to List", "Gettasks")
+</div>

@@ -22,6 +22,7 @@ namespace WelcomeMVCApp.Models
         
         public string password { get; set; }
 
-
+        public int a { get; set; }
+        public int counter;
     }
 }

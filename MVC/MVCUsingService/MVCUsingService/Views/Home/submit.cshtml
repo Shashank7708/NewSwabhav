@@ -11,12 +11,16 @@
     <title>submit</title>
 </head>
 <body>
-    <div> if(!@ViewBag.name==null){
-                <p>@ViewBag.name Added Successfully</p>
-    }
-    else{
-    <p>OOPS! Some Error Occured</p>}
-        
+    <div>
+        @if (@ViewBag.name == null)
+        {
+
+            <p>OOPS! Some Error Occured</p>
+        }
+        else
+        {<p>@ViewBag.name Added Or Updated or Deleted Successfully</p>}
+            
+
     </div>
 </body>
 </html>

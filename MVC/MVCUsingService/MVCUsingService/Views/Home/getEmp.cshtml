@@ -12,30 +12,38 @@
     <title>getEmp</title>
 </head>
 <body>
-    <div> 
-        <p>@Html.ActionLink("Create New","Create")</p>
+    <div>
         <div class="jumbotron">
             <table class="table table-success table-striped">
                 <tr>
-                   
+
                     <th>Name</th>
                     <th>Position</th>
-                    
+
                     <th>Salary</th>
+                    <th>Age</th>
+                    <th>Actions</th>
                 </tr>
                 @foreach (var emp in @ViewBag.li)
                 {
                     <tr>
-                        
+
                         <td>@emp.name</td>
                         <td>@emp.position</td>
-                        
+
+
                         <td style="background-color:@emp.salaryCol">@emp.salary</td>
+                        <td>@emp.age</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { Id = emp.id })|
+                            @Html.ActionLink("Delete", "Delete", new { Id = emp.id })
+                        </td>
                     </tr>
                 }
             </table>
         </div>
-            
+        <p>@Html.ActionLink("Add New Employee", "insert")</p>
+
     </div>
 </body>
 </html>

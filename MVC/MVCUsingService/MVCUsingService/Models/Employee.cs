@@ -49,4 +49,22 @@ namespace MVCUsingService.Models
 
     }
 
+    public class EmpEditVm
+    {
+        public int age { get; set; }
+
+        public string name { get; set; }
+        public int id { get; set; }
+
+
+        public string position { get; set; }
+
+
+
+
+
+
+        public double salary { get; set; }
+    }
+
 }

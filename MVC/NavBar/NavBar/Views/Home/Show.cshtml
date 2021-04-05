@@ -1,0 +1,27 @@
+﻿@model List<NavBar.Models.Student>
+@{ Layout = null;
+    Layout = "~/Views / Shared / _MyView.cshtml";
+    ViewBag.Title = "Show";
+    int a = 10;
+}
+
+<h2>Show</h2>
+<hr /> 
+@{ 
+    for(int i = 0; i < 10; i++)
+    {
+        <input type="text" value="@i @a" /><br />
+    }
+}
+
+
+<table>
+    @foreach (var i in Model )
+    {
+        <tr> 
+            <td>@i.id</td>
+            <td>@i.name</td>
+        </tr>
+    }
+</table>
+

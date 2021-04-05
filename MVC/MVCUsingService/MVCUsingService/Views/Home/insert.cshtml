@@ -5,44 +5,49 @@
 
 <html>
 <head>
+    
     <meta name="viewport" content="width=device-width" />
     <title>validate</title>
 </head>
 <body>
-    <div>
-        <h1 style="color:firebrick">Insert Employee</h1>
-        @using (Html.BeginForm("submit", "Home", FormMethod.Post))
-        {
-            <br />
-            <div>
-                Name:  @Html.TextBoxFor(m => m.name)
-                @Html.ValidationMessageFor(model => model.name, "", new { style = "color:red" })
+    
+       
+        <div class="container">
+            <h1 style="color:firebrick">Insert Employee</h1>
+            @using (Html.BeginForm("submit", "Home", FormMethod.Post))
+            {
+                <br />
+                <div>
+                    Name:  @Html.TextBoxFor(m => m.name)
+                    @Html.ValidationMessageFor(model => model.name, "", new { style = "color:red" })
 
-                <br />
+                    <br />
 
 
-                <br />
-            </div>
-            <div>
-                Position: @Html.TextBoxFor(m => m.position)
-                <br />
+                    <br />
+                </div>
+                <div>
+                    Position: @Html.TextBoxFor(m => m.position)
+                    <br />
 
-                @Html.ValidationMessageFor(model => model.position, "", new { style = "color:red" })
-                <br />
-            </div>
-            <div>
-               Age: <input type="number" name="age" value="" />
-                @Html.ValidationMessageFor(model => model.position, "", new { style="color:red"})
-                <br />
-                <br />
-                Salary: <input type="number" name="salary" value="" />
-                @Html.ValidationMessageFor(model => model.salary, "", new { style="color:red"})
-                <br />
-            </div>
-            <input type="submit" value="Submit" />
+                    @Html.ValidationMessageFor(model => model.position, "", new { style = "color:red" })
+                    <br />
+                </div>
+                <div>
+                    Age: <input type="number" name="age" value="" />
+                    @Html.ValidationMessageFor(model => model.position, "", new { style = "color:red" })
+                    <br />
+                    <br />
+                    Salary: <input type="number" name="salary" value="" />
+                    @Html.ValidationMessageFor(model => model.salary, "", new { style = "color:red" })
+                    <br />
+                </div>
+                <input type="submit" value="Submit" />
 
-        }
-    </div>
+
+            }
+        </div>
+    
 </body>
 </html>
 

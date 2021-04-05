@@ -76,13 +76,21 @@ namespace WelcomeMVCApp.Controllers
         }
 
        [HttpPost]
-        public ActionResult submit(Login login)
+        public ActionResult submit()
         {
-            if (ModelState.IsValid)
+            Login svm;
+            if (Session["CurrentSession"] != null)
             {
-                return View();
+                svm = (Login)Session["CurrentSession"];
             }
-            return View("validate");
+            else { svm = new Login(); }
+
+            svm.counter++;
+            svm.a = svm.counter;
+            ViewBag.aa = svm.a;
+                return View();
+            
+         //   return View("validate");
         }
 
 

@@ -13,8 +13,8 @@ namespace MVCUsingService.Service
         
         public IEnumerable<Employee> GetPerson()
         {
-           // Employee e = new Employee { id = 0, name = "Rahul", position = "Manager", age = 35, salary = 45000 };
-           // emplist.Add(e);
+            //Employee e = new Employee { id = 0, name = "Rahul", position = "Manager", age = 35, salary = 45000 };
+            // emplist.Add(e);
             return emplist;
         }
 
@@ -24,6 +24,45 @@ namespace MVCUsingService.Service
             emplist.Add(e);
         }
 
+        public Employee getAEmployee(int id)
+        {
+            Employee employee=new Employee();
+            foreach(var i in emplist)
+            {
+                if (i.id == id)
+                {
+                    employee = i;
+                    break;
+                }
+            }
+            return employee;
+        }
+
+        public void Edit(Employee e)
+        {
+            foreach(var i in emplist)
+            {
+                if (i.id == e.id)
+                {
+                    i.name = e.name;
+                    i.position = e.position;
+                    i.salary = e.salary;
+                    i.age = e.age;
+                   
+                }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            foreach (var i in emplist)
+            {
+                if (i.id == id)
+                {
+                    emplist.Remove(i);
+                }
+            }
+        }
 
     }
 }
