@@ -126,6 +126,21 @@ namespace EmployeeListUsingMVC.Repository
             return db.subtasks.ToList();
         }
 
+
+       static UserRepo userdb = new UserRepo();
+
+        public void insermembers(Membership1 u)
+        {
+            userdb.memberships.Add(u);
+            userdb.SaveChanges();
+        }
+
+        public List<Membership1> getmembers()
+        {
+            return userdb.memberships.ToList();
+        }
+
+
     }
 
 }

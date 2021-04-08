@@ -1,0 +1,28 @@
+﻿@model EmployeeListUsingMVC.Models.Task
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<div class="jumbotron">
+    <div class="container">
+        <form action="/Home/Edit" method="post">
+            Id: <input type="number" name="id" readonly="readonly" value="@Model.id" />
+            <br />
+            Name: <input type="text" name="name" value="@Model.name" />
+            <br />
+            Date: <input type="tel" name="date" value="@Model.date" />
+            <br />
+            <br />
+        <input type="submit" value="Save" />
+            
+        </form>
+       </div>
+    </div>
+
+<p class="bg-success text-white">@ViewBag.Message</p>            
+<div class="text-primary bg-success">
+    @Html.ActionLink("Back to List", "Gettasks")
+</div>

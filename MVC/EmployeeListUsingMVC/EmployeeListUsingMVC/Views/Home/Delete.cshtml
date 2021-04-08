@@ -1,0 +1,29 @@
+﻿@model EmployeeListUsingMVC.Models.Task
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Are You Sure?</h2>
+<div class="jumbotron">
+    <div class="container">
+        <form action="/Home/Delete" method="post">
+            Id: <input type="number" name="id" readonly="readonly" value="@Model.id" />
+            <br />
+            <br />
+            Name: <input type="text" name="name" value="@Model.name" readonly="readonly" />
+            <br /><br />
+            Date: <input type="tel" name="date" value="@Model.date" readonly="readonly" />
+            <br />
+            <br />
+            <input type="submit" value="Delete" class="btn-danger" />
+
+        </form>
+    </div>
+</div>>
+
+
+
+
+<div class="text-primary bg-success">@Html.ActionLink("Back to List", "Index")</div>
+

@@ -1,0 +1,36 @@
+﻿@model List<EmployeeListUsingMVC.Models.Task>
+@{
+    ViewBag.Title = "Gettasks";
+}
+
+<h2>Tasks</h2>
+<hr />
+<p class="text-primary bg-success">@Html.ActionLink("Add Task", "insert")</p>
+<br />
+<div class="jumbotron">
+    <div class="container">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+
+            <th>Actions</th>
+        </tr>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.id</td>
+                <td>@i.name</td>
+                <td>@i.date</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = i.id })|
+                    @Html.ActionLink("Delete", "Delete", new { id = i.id })|
+                        @Html.ActionLink("SubTask", "getsubtask", new { id = i.id })|
+                        @Html.ActionLink("Add-Subtask", "insertsubtask", new { id=i.id})
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    </div>

@@ -14,5 +14,8 @@ namespace MVCandEntityFramework.Repository
 
         }
         public DbSet<Contact> contacts { get; set; }
+
+        public DbSet<>
+
     }
 }

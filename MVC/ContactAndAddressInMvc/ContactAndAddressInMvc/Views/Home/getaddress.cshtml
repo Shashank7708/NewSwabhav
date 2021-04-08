@@ -1,0 +1,50 @@
+﻿@model  List<ContactAndAddressInMvc.Models.Address>
+@{
+    ViewBag.Title = "getaddress";
+}
+
+<h2>Address</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Address</title>
+</head>
+<body>
+    <h1>Address</h1>
+    <hr />
+    <div>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Address</th>
+                <th>ContactFirstName</th>
+                <th>Actions</th>
+            </tr>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.Id</td>
+                    <td>@i.address</td>
+                    <td>@i.Contact.FirstName</td>
+
+
+                    <td>
+                        @Html.ActionLink("Edit", "editaddress", new { id = i.Id })|
+                        @Html.ActionLink("Delete", "deleteaddress", new { id = i.Id })|
+                 
+
+                    </td>
+                </tr>
+
+
+            }
+        </table>
+    </div>
+</body>
+</html>
+
+<p>@Html.ActionLink("Back To List","Index")</p>

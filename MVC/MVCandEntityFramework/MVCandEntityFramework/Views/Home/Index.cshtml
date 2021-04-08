@@ -19,14 +19,19 @@
             <th>Last-name</th>
             <th>PhoneNo</th>
             <th>Address</th>
+            <th>Actions</th>
             </tr>
-            @foreach (var i in ViewBag.contacts)
+            @foreach (var i in @ViewBag.contacts)
             {
                 <tr>
                 <td>@i.fname</td>
-                <td>@i.lname</td>
+                <td>@Html.Raw(@i.lname)</td>
                 <td>@i.phoneno</td>
                 <td>@i.address</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { fname = i.fname })|
+                    @Html.ActionLink("Delete","Delete",new { fname=i.fname})
+                </td>
                 </tr>
 
 

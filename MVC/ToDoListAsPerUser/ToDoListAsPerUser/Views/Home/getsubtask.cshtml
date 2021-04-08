@@ -1,0 +1,45 @@
+﻿@model List<ToDoListAsPerUser.Models.Subtask>
+@{
+    ViewBag.Title = "getsubtask";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>getsubtask</h2>
+
+
+<h2>Subtasks</h2>
+<hr />
+<br />
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>SubTaskOf</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.id</td>
+            <td>@i.name</td>
+
+            <td>@i.date</td>
+
+            <td>@i.status</td>
+            <td>@i.Task.name</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit1", new { id = i.id })|
+                @Html.ActionLink("Delete", "Delete1", new { id = i.id })
+            </td>
+
+        </tr>
+    }
+</table>
+
+<br />
+<br />
+<p class="text-primary bg-success">
+    @Html.ActionLink("Back To Main List", "Gettasks",new { id=ViewBag.id});
+</p>

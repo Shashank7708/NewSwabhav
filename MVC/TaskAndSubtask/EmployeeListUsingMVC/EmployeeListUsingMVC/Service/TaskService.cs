@@ -73,5 +73,16 @@ namespace EmployeeListUsingMVC.Service
         {
             return taskdb.getAllSubtask1();
         }
+
+        public static void insertmembers(Membership1 m)
+        {
+            taskdb.insermembers(m);
+        }
+
+        public static List<Membership1> members()
+        {
+            return taskdb.getmembers();
+        }
+
     }
 }

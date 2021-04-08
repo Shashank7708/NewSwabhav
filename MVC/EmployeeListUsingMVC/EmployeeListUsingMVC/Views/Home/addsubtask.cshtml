@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "addsubtask";
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem { Text = "Done", Value = "Done" });
+    list.Add(new SelectListItem { Text = "Un-Done", Value = "Un-Done" });
+}
+
+<h2>addsubtask</h2>
+
+<form action="/Home/submitsubtask" method="post">
+
+    Task ID: <input type="number" name="id" value="@ViewBag.id" />
+    <br />
+    <br />
+
+    Name: @Html.TextBox("name")
+    <br />
+    <br />
+    Date: @Html.TextBox("date")
+    <br />
+    Status: @Html.DropDownList("Status", list, "Select");
+    <br />
+    <br />
+<p> <input type="submit" value="Save" />  </p>
+</form>

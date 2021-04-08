@@ -1,0 +1,39 @@
+﻿@model ToDoListAsPerUser.ViewModel.SubTaskOperation
+
+@{
+    ViewBag.Title = "Delete1";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Delete1</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="jumbotron">
+    <div class="container">
+        <form action="/Home/Delete1" method="post">
+            Main-Task Name: <input type="text" name="parentname" readonly="readonly" value="@Model.parentname" />
+            <br />
+            <br />
+            Id:<input type="number" name="id" value="@Model.id" readonly="readonly" />
+            <br />
+            <br />
+            Name: <input type="text" name="name" value="@Model.name" readonly="readonly" />
+            <br />
+            <br />
+            Date: <input type="text" name="date" value="@Model.date" readonly="readonly" />
+            <br />
+            <br />
+            Status: <input type="text" name="status" value="@Model.status" readonly="readonly" />
+            <br />
+            <br />
+            <input type="submit" value="Delete" class="btn-danger" />
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+

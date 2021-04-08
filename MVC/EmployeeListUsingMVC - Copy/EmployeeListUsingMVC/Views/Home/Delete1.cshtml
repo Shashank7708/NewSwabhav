@@ -1,0 +1,37 @@
+﻿@model EmployeeListUsingMVC.Models.Subtask
+
+@{
+    ViewBag.Title = "Delete1";
+    
+}
+
+<h2>Are You Sure?</h2>
+
+<div class="jumbotron">
+    <div class="container">
+        <form action="/Home/Delete1" method="post">
+            Main-Task Name: <input type="text" name="parentname" readonly="readonly" value="@Model.Task.name" />
+            <br />
+            <br />
+            Id:<input type="number" name="id" value="@Model.id" readonly="readonly" />
+            <br />
+            <br />
+            Name: <input type="text" name="name" value="@Model.name" readonly="readonly" />
+            <br />
+            <br />
+            Date: <input type="text" name="date" value="@Model.date" readonly="readonly" />
+            <br />
+            <br />
+            Status: <input type="text" name="status" value="@Model.status" readonly="readonly" />
+            <br />
+            <br />
+            <input type="submit" value="Delete"  class="btn-danger"/>
+
+        </form>
+    </div>
+</div>
+<br />
+<p class="bg-success text-white">@ViewBag.Message</p>
+<div class="text-primary bg-success">
+    @Html.ActionLink("Back to List", "Gettasks")
+</div>

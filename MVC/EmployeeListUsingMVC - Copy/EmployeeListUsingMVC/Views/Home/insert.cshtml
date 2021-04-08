@@ -1,0 +1,22 @@
+﻿
+@{  Layout = null;
+    Layout= "~/Views/Shared/_MyView.cshtml";
+    ViewBag.Title = "insert";
+}
+
+<h2>Add Task:</h2>
+
+<form action="/Home/insert" method="post">
+    Name: <input type="text" name="name" value="@ViewBag.name" />
+    <br />
+    <br />
+    Date : <input type="text" name="date" value="@ViewBag.date" />
+    <br />
+    <br />
+    <p> <input class="danger" type="submit" value="Submit" />  </p>
+
+
+
+</form>
+
+<p style="color:red">@ViewBag.message</p>

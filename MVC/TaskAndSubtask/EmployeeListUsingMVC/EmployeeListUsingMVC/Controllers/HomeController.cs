@@ -1,4 +1,5 @@
-﻿using EmployeeListUsingMVC.Models;
+﻿using EmployeeListUsingMVC.Filter;
+using EmployeeListUsingMVC.Models;
 using EmployeeListUsingMVC.Service;
 using EmployeeListUsingMVC.ViewModel;
 using System;
@@ -6,53 +7,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Web.Security;
+using System.Diagnostics;
 namespace EmployeeListUsingMVC.Controllers
-{
+{   
     public class HomeController : Controller
     {
 
-
-     
-
-
-       public ActionResult Login()
-        {
-            return View();
-        }    
-    
-        [HttpPost]
-        public ActionResult Login2(User user)
-        {
-            if (TaskService.Validate(user.txtlogin, user.txtpassword))
-            {
-                Session["login"] = user.txtlogin;
-                return Redirect("~/Home/Gettasks");
-            }
-            else
-            {
-                ViewBag.message = "Invalid User";
-            }
-            return View("Login");
-        }
-
-       
-
-
+        //[Authorize]
         public ActionResult insert()
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
-         
+            Debug.WriteLine("Insert Authorize");
             return View();
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+     //   [Authorize]
         public ActionResult insert(TaskVM t)
         {
-           
+            Debug.WriteLine("Insert save Authorize");
 
             if (ModelState.IsValid)
             {
@@ -68,10 +42,7 @@ namespace EmployeeListUsingMVC.Controllers
 
         public ActionResult Gettasks()
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
+           
             List<Task> tasks = new List<Task>();
             foreach(var i in TaskService.tasks())
             {
@@ -81,13 +52,11 @@ namespace EmployeeListUsingMVC.Controllers
             return View(tasks);
         }
 
+        [Authorize]
         public ActionResult Edit(int id)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
 
+            Debug.WriteLine("Edit Authorize");
             Task task = new Task();
             foreach(var i in TaskService.tasks())
             {
@@ -101,12 +70,10 @@ namespace EmployeeListUsingMVC.Controllers
             return View(task);
         }
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(Task t)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
+            Console.WriteLine("Edit save Authorize");
 
             if (ModelState.IsValid)
             {
@@ -118,13 +85,11 @@ namespace EmployeeListUsingMVC.Controllers
 
         }
 
-       
+        [Authorize]
         public ActionResult Delete(int id)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
+            Console.WriteLine("Delete Authorize");
+
             Task task = new Task();
             foreach (var i in TaskService.tasks())
             {
@@ -138,12 +103,10 @@ namespace EmployeeListUsingMVC.Controllers
             return View(task);
         }
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(Task t)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
+            Console.WriteLine("Delete save Authorize");
 
             if (TaskService.deletetask(t))
             {
@@ -158,12 +121,6 @@ namespace EmployeeListUsingMVC.Controllers
 
         public ActionResult getsubtask(int id)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
-
-
             List<Subtask> tasks = new List<Subtask>();
             foreach(var i in TaskService.subtasks(id))
             {
@@ -175,22 +132,17 @@ namespace EmployeeListUsingMVC.Controllers
 
       public ActionResult insertsubtask(int id)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
+           
             ViewBag.id = id;
             return View();
 
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult insertsubtask(AddSubTask subtask)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
+           
             Task t = new Task();
             foreach(var i in TaskService.tasks())
             {
@@ -204,11 +156,6 @@ namespace EmployeeListUsingMVC.Controllers
 
         public ActionResult Edit1(int id)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
-
             Subtask task = new Subtask();
             foreach (var i in TaskService.getAllSubtask())
             {
@@ -218,12 +165,9 @@ namespace EmployeeListUsingMVC.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Edit1(SubtaskVM t)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
             Task task = new Task();
             if (ModelState.IsValid)
             {
@@ -243,13 +187,10 @@ namespace EmployeeListUsingMVC.Controllers
 
 
 
-
+        [Authorize]
         public ActionResult Delete1(int id)
         {
-            if (Session["login"] == null)
-            {
-                return Redirect("~/Home/Login");
-            }
+
             Subtask task = new Subtask();
             foreach (var i in TaskService.getAllSubtask())
             {
@@ -262,6 +203,7 @@ namespace EmployeeListUsingMVC.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Delete1(SubtaskVM t)
         {
             Task task = new Task();
@@ -278,15 +220,9 @@ namespace EmployeeListUsingMVC.Controllers
             return Redirect("~/Home/getsubtask/" + task.id);
         }
 
-      
 
-        public ActionResult logout()
-        {
-            Session["login"] = null;
-            Session.Abandon();
-            return Redirect("~/Home/Login");
-            
-        }
+
+        [Authorize]
         public ActionResult Index()
         {
             return View();

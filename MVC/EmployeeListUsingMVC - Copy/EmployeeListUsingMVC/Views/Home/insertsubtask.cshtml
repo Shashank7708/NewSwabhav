@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "insertsubtask";
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem { Text = "Done", Value = "Done" });
+    list.Add(new SelectListItem { Text = "Un-Done", Value = "Un-Done" });
+}
+
+<h2>insertsubtask</h2>
+
+<div class="container bg-secondary">
+    <form action="/Home/insertsubtask" method="post">
+        Main Task Id: <input type="number" name="id" value="@ViewBag.id" readonly="readonly" />
+        <br />
+        <br />
+        Name: <input type="text" name="name" value="" />
+        <br />
+        <br />
+        Date: <input type="text" name="date" value="" />
+        <br />
+        <br />
+        Status: @Html.DropDownList("status",list,"Select")
+        <br />
+        <br />
+        <input type="submit" value="Save" />
+
+
+    </form>
+
+</div>
