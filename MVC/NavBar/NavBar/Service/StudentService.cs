@@ -10,7 +10,7 @@ namespace NavBar.Service
     {
         public static bool Validate(string login,string password)
         {
-            if (login == "admin" && password == "Admin")
+            if (login == "admin" && password == "admin")
                 return true;
             return false;
         }
