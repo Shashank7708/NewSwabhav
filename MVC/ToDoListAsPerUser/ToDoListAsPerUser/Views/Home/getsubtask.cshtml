@@ -4,42 +4,53 @@
     Layout = "~/Views/Shared/View.cshtml";
 }
 
-<h2>getsubtask</h2>
-
-
-<h2>Subtasks</h2>
+<h2>Subtask</h2>
 <hr />
-<br />
-<table class="table">
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>SubTaskOf</th>
-        <th>Actions</th>
-    </tr>
-    @foreach (var i in Model)
-    {
-        <tr>
-            <td>@i.id</td>
-            <td>@i.name</td>
-
-            <td>@i.date</td>
-
-            <td>@i.status</td>
-            <td>@i.Task.name</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit1", new { id = i.id })|
-                @Html.ActionLink("Delete", "Delete1", new { id = i.id })
-            </td>
-
-        </tr>
-    }
-</table>
-
-<br />
-<br />
-<p class="text-primary bg-success">
-    @Html.ActionLink("Back To Main List", "Gettasks",new { id=ViewBag.id});
+<p class="btn btn-success text-white">
+    @Html.ActionLink("Add", "insertsubtask", new { id = ViewBag.id })
 </p>
+
+
+
+<br />
+<br />
+<div class="jumbotron wwww">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>SubTaskOf</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.id</td>
+                    <td>@i.name</td>
+
+                    <td>@i.date</td>
+
+                    <td>@i.status</td>
+                    <td>@i.Task.name</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit1", new { id = i.id })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete1", new { id = i.id })
+                    </td>
+
+                </tr>
+            }
+        </table>
+     </div>
+</div>
+
+        <br />
+        <br />
+        <p class="text-primary bg-success">
+            @Html.ActionLink("Back To Main List", "Gettasks", new { id = ViewBag.id })
+        </p>

@@ -8,16 +8,24 @@ using WebApiCrud.Models;
 using WebApiCrud.Service;
 
 namespace WebApiCrud.Controllers
-{
+{     [RoutePrefix("api/emp")]
     public class EmployeeController : ApiController
     {   [HttpGet]
+        [Route("get")]
         public IHttpActionResult getEmp()
         {
             List<Employee> emps = ServiceLayer.getEmployee();
             return Ok(emps);
         }
 
+        [Route("message")]
+        public IHttpActionResult getmessage()
+        {
+            return Ok("Get Message Succesfully posted");
+        }
+
         [HttpPost]
+        [Route("post")]
         public IHttpActionResult postEmp(Employee e)
         {
             if (ModelState.IsValid)
@@ -33,6 +41,7 @@ namespace WebApiCrud.Controllers
         }
 
         [HttpPut]
+        [Route("put")]
         public IHttpActionResult putEmp(Employee e)
         {
             if (ModelState.IsValid)

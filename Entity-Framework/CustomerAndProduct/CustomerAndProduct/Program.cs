@@ -43,9 +43,11 @@ namespace CustomerAndProduct
             // Console.WriteLine("\nFetch all Products of Customer1");
             //var customer1 = db.customers.Where(x => x.customerid == 1).Select(x=>x);
             Console.WriteLine("\nGet all Product where id greater than 2:");
-            var prouct = db.products.Where(x => x.pid > 2).Select(x=>new {x.pid,x.productName }).ToList();
-         
-            foreach(var i in prouct)
+           // var prouct = db.products.Where(x => x.pid > 2).Select(x=>new {x.pid,x.productName }).ToList();
+            var x1 = from i in db.products
+                    where i.pid > 2
+                    select new { i.pid, i.productName };
+            foreach(var i in x1)
             {
                 Console.WriteLine($"{i.pid} {i.productName}");
             }

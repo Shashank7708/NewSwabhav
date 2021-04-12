@@ -6,9 +6,10 @@
 
 <h2>Tasks</h2>
 <hr />
-<p class="text-primary bg-success">@Html.ActionLink("Add Task", "insert", new { id =ViewBag.userid})</p>
+<p class="btn btn-success text-white">@Html.ActionLink("Add Task", "insert", new { id =ViewBag.userid})</p>
 <br />
-<div class="jumbotron">
+<br />
+<div  class="jumbotron wwww">
     <div class="container">
         <table class="table">
             <tr>
@@ -28,7 +29,7 @@
                         @Html.ActionLink("Edit", "Edit", new { id = i.id })|
                         @Html.ActionLink("Delete", "Delete", new { id = i.id })|
                         @Html.ActionLink("SubTask", "getsubtask", new { id = i.id })|
-                        @Html.ActionLink("Add-Subtask", "insertsubtask", new { id = i.id })
+                      
                     </td>
                 </tr>
             }

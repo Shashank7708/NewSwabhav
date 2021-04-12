@@ -1,6 +1,7 @@
 ﻿using NinjectDemo.Business;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -13,6 +14,7 @@ namespace NinjectDemo.Controllers
         private readonly ICalculator _calculator;
         public HomeController(ICalculator calc)
         {
+            Debug.Write("Hello");
             _calculator = calc;
         }
         public IHttpActionResult getSum(int num1,int num)

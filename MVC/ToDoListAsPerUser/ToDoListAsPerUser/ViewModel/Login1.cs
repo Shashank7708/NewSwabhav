@@ -9,7 +9,7 @@ namespace ToDoListAsPerUser.ViewModel
     public class Login1
     {
         [Required]
-        public string Login { get; set; }
+        public string UserName { get; set; }
         [Required]
         public string Password { get; set; }
     }

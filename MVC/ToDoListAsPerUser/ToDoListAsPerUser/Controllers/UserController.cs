@@ -28,13 +28,16 @@ namespace ToDoListAsPerUser.Controllers
                 List<User1> members = TaskService.users();
                 foreach (var i in members)
                 {
-                    if (i.login.Equals(u.Login) && i.password.Equals(u.Password))
+                    if (i.login.Equals(u.UserName) && i.password.Equals(u.Password))
                     {
                        FormsAuthentication.SetAuthCookie(i.login, false);
                         return Redirect("~/Home/Gettasks/"+i.id);
                     }
                 }
+
+                ViewBag.message = "Invalid Username Or Password";
             }
+            
             return View();
         }
 
@@ -51,7 +54,7 @@ namespace ToDoListAsPerUser.Controllers
         {
             if (ModelState.IsValid)
             {   if(m.Password.Equals(m.Confirm))
-                TaskService.insertuser(new User1 {login=m.Login,password=m.Password });
+                TaskService.insertuser(new User1 {login=m.Username,password=m.Password });
                 ViewBag.message="Added Successfully";
                 return RedirectToAction("Index");
             }
@@ -65,5 +68,7 @@ namespace ToDoListAsPerUser.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "User");
         }
+
+        
     }
 }

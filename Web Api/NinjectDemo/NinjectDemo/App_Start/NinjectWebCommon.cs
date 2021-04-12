@@ -71,3 +71,4 @@ namespace NinjectDemo.App_Start
         }
     }
 }
+

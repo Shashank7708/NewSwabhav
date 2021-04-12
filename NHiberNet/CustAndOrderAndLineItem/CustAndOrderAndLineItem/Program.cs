@@ -115,7 +115,7 @@ namespace CustAndOrderAndLineItem
                     };
 
                     var lineitem = from i in session.CreateCriteria<LineItem>().List<LineItem>()
-                                   orderby i.Itemname descending
+                                   orderby i.Itemname,i.PerCost descending
                                    select new { i.itemid,i.Itemname,i.PerCost,i.quantity};
                     Console.WriteLine("Order BY Name:");
                     foreach(var i in lineitem)

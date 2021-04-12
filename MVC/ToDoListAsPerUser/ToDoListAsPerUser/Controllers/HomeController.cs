@@ -35,8 +35,8 @@ namespace ToDoListAsPerUser.Controllers
                 }
                 TaskService.insert(new Task { name = t.name, date = t.date ,user=user});
             }
-           
-            return View("insert");
+
+            return RedirectToAction("Gettasks", new { id = t.user });
         }
 
 
@@ -109,8 +109,8 @@ namespace ToDoListAsPerUser.Controllers
         public ActionResult Delete(TaskOperation t)
         {
            TaskService.deletetask(t.id);
-           
-            return RedirectToAction("Gettasks",new { id = t.user });
+
+            return RedirectToAction("Gettasks", new { id = t.user });
         }
 
 
@@ -133,7 +133,8 @@ namespace ToDoListAsPerUser.Controllers
         }
 
         [HttpPost]
-     
+        [ValidateAntiForgeryToken]
+
         public ActionResult insertsubtask(SubtaskVm subtask)
         {
 
@@ -202,18 +203,11 @@ namespace ToDoListAsPerUser.Controllers
             {
                 foreach (var i in TaskService.tasks()) { if (i.name.Equals(t.parentname)) task = i; }
                 foreach (var i in TaskService.getAllSubtask()) { if (i.id == t.id) subtask = i; }
-
-
-                bool result = TaskService.delesubtask(subtask);
-                if (result == true) { ViewBag.message = "Edited Successfully"; }
-                else { ViewBag.message = "Edited not Possible"; }
+                TaskService.delesubtask(subtask);
+                
             }
             return Redirect("~/Home/getsubtask/"+task.id);
         }
-
-
-
-      
         public ActionResult Index()
         {
             return View();

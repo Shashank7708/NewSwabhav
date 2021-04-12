@@ -28,19 +28,15 @@
             @Html.DisplayFor(model => model.date)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.user)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.user)
-        </dd>
+        
 
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
+        <input type="number" hidden="" name="user" value="@Model.user" readonly="readonly" />
 
+       
 <div class="form-actions no-color">
     <input type="submit" value="Delete" class="btn btn-default" /> |
     @Html.ActionLink("Back to List", "Gettasks", new { id =Model.user })
