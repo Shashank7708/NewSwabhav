@@ -1,0 +1,41 @@
+<div [style.height]="'100'" [style.width]="'100%'" [style.border-style]="'solid'" [style.text-align]="'centre'" >
+  <p>discount works!</p>
+  <h1>Calculate Discount</h1>
+  Price:<input type="number" #price>
+  <br>
+  <br>
+  Discount: <input type="number" #dis>
+  <button (click)= "pricecalculate(price.value,dis.value)">Calculate</button>
+  </div>
+  
+  
+  
+  <div [style.text.align]="'centre'" [style.text]="'red'">
+    Cost<div [innerText]="cost"></div>
+  
+  </div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+  <div [style.height]="'100'" [style.width]="'100%'" [style.border-style]="'solid'" [style.text-align]="'centre'" >
+    <p>discount works!</p>
+    <h1>Calculate Discount</h1>
+    Price:<input type="number"  #price >
+    <br>
+    <br>
+    Discount: <input type="number" #dis>
+    <button (click)= "pricecalculate()">Calculate</button>
+    </div>
+    
+    
+    
+    <div [style.text.align]="'centre'" [style.text]="'red'">
+      Cost<div [innerText]="cost"></div>
+    
+    </div>
+  

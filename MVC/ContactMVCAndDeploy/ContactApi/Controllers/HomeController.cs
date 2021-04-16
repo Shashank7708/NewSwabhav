@@ -12,14 +12,13 @@ namespace ContactApi.Controllers
 {  
     public class HomeController : ApiController
     {
-        Service service = new Service();
-
+        IContactService service = new Service();
 
        
         [HttpGet]
         public IHttpActionResult getCOntacts()
         {   
-            return Ok(service.getContacts());
+            return Ok(service.contacts());
         }
 
       
@@ -40,5 +39,13 @@ namespace ContactApi.Controllers
             service.deleteContct(id);
             return Ok("Deleted Successfully");
         }
+
+        [HttpPut]
+        public IHttpActionResult editContact(Contact c)
+        {
+           service.editContact(c);
+            return Ok("Edited ");
+        }
+
     }
 }

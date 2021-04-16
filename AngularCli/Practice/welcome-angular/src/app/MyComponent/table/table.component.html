@@ -1,0 +1,27 @@
+<p>table works!</p>
+<div>
+    Name:<input #name1>
+    <br>
+    <br>
+    Price:<input type="number" #price1>
+    <br>
+    <br>
+    <button (click)="onCLick(name1.value,price1.value)">Click Here</button>
+
+<br>
+<br>
+<br>
+<table>
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+        <div *ngFor="let pro of arrofproduct;let i=index">
+       <tr>
+        <td>{{i+1}}</td>
+        <td>{{pro.name}}</td>
+        <td>{{pro.price}}</td>
+       </tr>
+    </div>
+</table>

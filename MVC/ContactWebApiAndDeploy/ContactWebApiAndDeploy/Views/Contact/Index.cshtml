@@ -1,0 +1,47 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contacts</h2>
+<hr />
+<p>@Html.ActionLink("Add", "addContact")</p>
+
+
+
+<div class="jumbotron">
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>First-Name</th>
+
+            <th>LastName</th>
+            <th>Contact</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+        @foreach (var i in ViewBag.con)
+        {
+            <tr>
+                <td>@i.Id</td>
+                <td>@i.FirstName</td>
+                <td>@i.LastName</td>
+                <td>@i.contactNo</td>
+                <td><div class="btn">@Html.ActionLink("Delete", "deleteContact", new { id = i.Id })</div></td>
+                <td>
+                    <div class="btn"> @Html.ActionLink("Edit", "editContact", new { id = i.Id })</div>
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+</div>
+<br />
+<br />
+<p>@ViewBag.message</p>
+
+
+

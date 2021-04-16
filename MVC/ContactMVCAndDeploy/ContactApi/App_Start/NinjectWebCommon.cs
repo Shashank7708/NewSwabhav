@@ -13,6 +13,7 @@ namespace ContactApi.App_Start
     using Ninject.Web.Common.WebHost;
     using System.Web.Http;
     using Ninject.Web.WebApi;
+    using ContactCore.Service;
 
     public static class NinjectWebCommon 
     {
@@ -64,6 +65,7 @@ namespace ContactApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IContactService>().To<Service>();
         }
     }
 }

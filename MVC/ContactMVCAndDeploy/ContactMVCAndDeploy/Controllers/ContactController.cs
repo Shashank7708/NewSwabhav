@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ContactMVCAndDeploy.Vm;
 using System.Net.Http;
 using Newtonsoft.Json;
+using ContactCore.Service;
 
 namespace ContactMVCAndDeploy.Controllers
 {
@@ -19,9 +20,10 @@ namespace ContactMVCAndDeploy.Controllers
         
         HomeController db = new HomeController();
         
+        [OutputCache(Duration =10)]
         public ActionResult Index()
         {
-            IEnumerable<Contact> allcontacts = null;
+            IEnumerable<ContactVm> allcontacts = null;
 
             using (var client = new HttpClient())
             {
@@ -34,15 +36,15 @@ namespace ContactMVCAndDeploy.Controllers
                 if (result.IsSuccessStatusCode)
                 {
                     var readTask = result.Content.ReadAsStringAsync().Result;
-                    allcontacts = JsonConvert.DeserializeObject<IList<Contact>>(readTask);
-                    allcontacts.Count();
-                    ViewBag.message = "Got";
+                    allcontacts = JsonConvert.DeserializeObject<IList<ContactVm>>(readTask);
+                    
+                
                 }
                 else 
                 {
-                    allcontacts = Enumerable.Empty<Contact>();
+                    allcontacts = Enumerable.Empty<ContactVm>();
 
-                    ViewBag.message = "Not Get";
+                  
                 }
             }
 
@@ -52,42 +54,85 @@ namespace ContactMVCAndDeploy.Controllers
             return View();
 
         }
-        [Route("add")]
+        
         public ActionResult addContact()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult addContact(Contact c)
+        public ActionResult addContact(ContactVm vm)
         {
             if (ModelState.IsValid)
             {
-                db.postContact(c);
+                db.postContact(new Contact { FirstName = vm.FirstName, LastName = vm.LastName, contactNo = vm.contactNo });
+               
             }
-            return View();
+            return RedirectToAction("Index");
         }
-        [Route("delete")]
-        public ActionResult deleteContact()
-        {
-            return View();
-        }
+        
+        
+       
 
-        [HttpPost]
+
+       
+        
         public ActionResult deleteContact(int id)
         {
             if (id > 0)
             {
-                ViewBag.message = db.deleteContact(id);
-
+                db.deleteContact(id);
+             
             }
-            else
-            {
-                ViewBag.message = "Not Deleted Successfully";
-
-            }
-            return View();
+         
+            return RedirectToAction("Index");
 
         }
+
+        public ActionResult editContact(int id)
+        {
+            IEnumerable<ContactVm> allcontacts = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44382/api/");
+
+                var responseTask = client.GetAsync("Home");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsStringAsync().Result;
+                    allcontacts = JsonConvert.DeserializeObject<IList<ContactVm>>(readTask);
+                    allcontacts.Count();
+                    ViewBag.message = "Got";
+                }
+                else
+                {
+                    allcontacts = Enumerable.Empty<ContactVm>();
+
+                    ViewBag.message = "Not Get";
+                }
+            }
+            ContactVm vm = new ContactVm();
+            vm = allcontacts.SingleOrDefault(x => x.Id == id);
+            return View(vm);
+
+        }
+
+        [HttpPost]
+        public ActionResult editContact(ContactVm vm)
+        {
+            if (ModelState.IsValid)
+            {
+                db.editContact(new Contact { Id = vm.Id, FirstName = vm.FirstName, LastName = vm.LastName, contactNo = vm.contactNo });
+                
+                
+            }
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

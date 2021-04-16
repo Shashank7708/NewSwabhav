@@ -1,4 +1,5 @@
 ﻿using ContactCore.Model;
+using ContactCore.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,35 +8,36 @@ using System.Threading.Tasks;
 
 namespace ContactCore.Service
 {
-   public class Service
+   public class Service:IContactService
     {
-        static List<Contact> contacts = new List<Contact>();
-        static int i = 0;
-        public List<Contact> getContacts()
+
+        static SwabhavRepository db = new SwabhavRepository();
+
+
+        public List<Contact> contacts()
         {
-            Contact c1 = new Contact { Id = i++, FirstName = "Romy", LastName = "Rajan", contactNo = 4728374 };
-            Contact c2 = new Contact { Id = i++, FirstName = "Shehan", LastName = "Shetty", contactNo = 1234567 };
-            contacts.Add(c1);
-            contacts.Add(c2);
-            return contacts;
+            return db.contactList();
         }
 
-        public void insertContact(Contact c)
+        public  void insertContact(Contact c)
         {
-            
-            contacts.Add(c);
+            db.insertcontact(c);
         }
+
 
         public void deleteContct(int id)
         {
-            var contact = contacts.SingleOrDefault(x => x.Id == id);
-            contacts.Remove(contact);
+            db.DeleteContact(id);
         }
+        
 
         public void editContact(Contact c)
         {
-            // db.EditContact(c);
+            db.EditContact(c);
         }
+
+
+
 
     }
 }

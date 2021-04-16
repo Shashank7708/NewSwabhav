@@ -1,0 +1,24 @@
+
+<img [src]="'../assets/java2.jpg'" height="300" width="300"> 
+
+<div>
+  Name: <input  #name>
+  Age:<input  #age>
+  <br>
+  <br>
+  <button (click)="onclick(name.value,age.value)">Click here</button>
+</div>
+<br>
+<br>
+<div>
+  Name:<div [innerText]="name3"></div>
+  <br>
+  Age:<div [innerText]="age1"></div>
+</div>
+<br>
+<br>
+<br>
+<app-table></app-table>
+<br>
+<br>
+<app-two-way-binding></app-two-way-binding>

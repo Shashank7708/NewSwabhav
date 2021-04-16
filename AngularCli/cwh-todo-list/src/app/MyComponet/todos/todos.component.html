@@ -1,0 +1,17 @@
+<!--
+<ul class="text-danger" *ngFor="let todo of todos">
+<li>{{todo.sno}}-{{todo.title}}-{{todo.active}}</li>
+<li><button class="btn btn-danger" onclick="onClick()">Delete</button></li>
+</ul>
+
+<div class="container text-center">
+<app-todos-item></app-todos-item>
+</div>
+<div>
+<img [src]="url" height="300" width="300">
+</div>
+
+<input type="file"(change)="onfileSelect($event)">
+-->
+<p>Firstname</p><input type="text" #box><br>
+    <button type="button" class="btn" (click)="getVal(box.value)">Hello</button>
