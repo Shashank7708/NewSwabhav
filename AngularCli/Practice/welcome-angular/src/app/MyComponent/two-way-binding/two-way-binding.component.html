@@ -1,5 +1,28 @@
-<hr>
-<hr>
-<p>two-way-binding works!</p>
-<input type="text" [(ngModel)]="username"/>
-<h4>Welcome {{username}}</h4>
+<div [style.height] = "'500px'" [style.width]="'400px'" [style.border]="'2px solid black'" id="box-div">
+    <h1 [style.fontSize.px] = "'40'">Price Calculator App</h1>
+     
+        <label>Price</label> 
+        <input type="number" [(ngModel)]="price">
+     
+
+     
+        <label>Discount</label> 
+        
+        <input type="number" [(ngModel)]="discount">
+     
+     
+
+     
+     <button (click)="GenerateBill()">Calculate</button>
+    <div>
+
+     <div>
+         <h3>COST:</h3></div>
+<div>
+    <h3 [(ngModel)] = "finalBill">{{finalBill}}</h3>
+</div>
+    </div>
+
+
+
+    </div>

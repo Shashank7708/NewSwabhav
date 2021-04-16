@@ -11,5 +11,12 @@ export class TwoWayBindingComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  public price !:string;
+  public discount!:string;
+  public finalBill !:number;
+  public GenerateBill(){
+    
+
+  }
 
 }

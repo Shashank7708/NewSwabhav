@@ -1,0 +1,15 @@
+<p>binding works!</p>
+<div>
+    <span>FirstName:</span>
+    <input type="text" [ngModel]="firstname" (ngModelChange)="nameChange($event)">
+    <h2 [innerText]="firstname"></h2>
+    <br>
+    <br>
+    <span>
+        LastName:
+    </span>
+    <input type="text" [(ngModel)]="lastName">
+    <br>
+    <br>
+    <span>{{lastName}}</span>
+</div>

@@ -1,0 +1,30 @@
+<!--
+<div>
+RollNo:<input type="number",na>
+Name:<input type="text" #name>
+Cgpa:<input type="number" #cgpa>
+<button (click)="onclick()"
+</div>
+-->
+
+
+
+<table class="table table-dark">
+  <tr>
+<th>Rollno:</th>
+<th>Name</th>
+<th>Cgpa</th>
+
+  </tr>
+  <tr *ngFor="let s of student">
+    <td>{{s.rollno}}</td>
+    <td>{{s.name}}</td>
+    <td>{{s.cgpa}}</td>
+  </tr>
+</table>
+
+
+<br>
+<br>
+<br>
+<app-binding></app-binding>

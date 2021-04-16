@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TableComponent } from './MyComponent/table/table.component';
-import { TwoWayBindingComponent } from './MyComponent/two-way-binding/two-way-binding.component';
-import {FormsModule} from '@angular/forms'
+import { BindingComponent } from './MyComponent/binding/binding.component';
+import {FormsModule} from "@angular/forms";
+import { FormValidationComponent } from './MyComponent/form-validation/form-validation.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent,
-    TwoWayBindingComponent
+    BindingComponent,
+    FormValidationComponent
   ],
   imports: [
     BrowserModule,

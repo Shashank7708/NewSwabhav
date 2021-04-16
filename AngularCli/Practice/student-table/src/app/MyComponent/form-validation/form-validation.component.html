@@ -1,0 +1,6 @@
+<p>form-validation works!</p>
+<form [formGroup]="loginForm" ngNativeValidate>
+    USERNAME : <input type="text" formControlName="username" required><br><br>
+    PASSWORD : <input type="text" formControlName="password" required><br><br>
+    <button type="submit" (click)="login()">Submit</button>
+</form>
