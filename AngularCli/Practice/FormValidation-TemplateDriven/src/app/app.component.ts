@@ -10,7 +10,7 @@ import {FormControl,FormGroup,Validators} from "@angular/forms";
 export class AppComponent {
   title = 'FormValidation-TemplateDriven';
 email:any;
-loginform=new FormGroup({
+
   email:new FormControl('',Validators.required),
   password:new FormControl(''),
 })

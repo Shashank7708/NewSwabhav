@@ -1,0 +1,6 @@
+<p>httpget works!</p>
+<section>
+    Input:<input type="text"[(ngModel)]="numbr">
+    <button (click)="getFact(numbr)">Get Fact</button>
+    <p *ngFor="let fact of facts">{{facts}}</p>
+</section>

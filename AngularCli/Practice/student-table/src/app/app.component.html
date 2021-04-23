@@ -1,11 +1,9 @@
-<!--
+
 <div>
-RollNo:<input type="number",na>
+RollNo:<input type="number" #rollno>
 Name:<input type="text" #name>
 Cgpa:<input type="number" #cgpa>
-<button (click)="onclick()"
-</div>
--->
+<button (click)="onclick(rollno.value,name.value,cgpa.value)">Submit</button>
 
 
 

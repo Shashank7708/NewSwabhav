@@ -1,0 +1,19 @@
+<p>child works!</p>
+<div [style.width.px]="17*rating" style="overflow:hidden;"(mouseover)="onHover($event)">
+<div [style.fonrSize.px]="17" style="display:flex;flex-direction: row;">
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-star"></span>
+</div>
+
+
+</div>
+
+<br>
+<br>
+{{ParentData}}
+<br>
+<br>
+<button (click)="fireEvent()">Send Event</button>

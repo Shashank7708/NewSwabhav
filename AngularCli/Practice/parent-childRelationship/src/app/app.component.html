@@ -1,0 +1,5 @@
+
+<p>{{message}}</p>
+
+<h1>Parent</h1>
+<app-child [ParentData]="name" (ChildEvent)="message=$event" [rating]='3.5' (ratingEvent)="ratingHandler($event)"></app-child>

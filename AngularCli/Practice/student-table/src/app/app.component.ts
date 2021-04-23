@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component } from '@angular/core';
 import {IStudent} from "./student"
 
@@ -13,7 +14,11 @@ export class AppComponent {
 {rollno:3,name:"Rohan",cgpa:8}];
 
 
-  
+onclick(rollno:string,name:string,cgpa:string){
+let rollno1=parseInt(rollno);
+let cgpa1=parseInt(cgpa);
+this.student.push({rollno1,name,cgpa1})
+}
 
 
 }
