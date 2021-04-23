@@ -1,0 +1,4 @@
+<p>master works!</p>
+
+<input type="number" [(ngModel)]="starNumber">
+<app-rating [rating]= "starNumber" (ratingEvent)="ratingHandler($event)"></app-rating>
