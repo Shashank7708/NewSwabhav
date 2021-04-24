@@ -3,6 +3,10 @@ import { ConvertActionBindingResult } from '@angular/compiler/src/compiler_util/
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ContactServiceService } from 'src/app/contact-service.service';
+import { Contact } from 'src/app/ContactDepartment/contact';
+import { Tenent } from 'src/app/LoginAndRegister/tenent';
+import { User } from 'src/app/LoginAndRegister/User';
+import { TenentService } from 'src/app/Servcices/tenent.service';
 import { Address } from '../address';
 
 @Component({
@@ -12,31 +16,38 @@ import { Address } from '../address';
 })
 export class ShowAddressComponent implements OnInit {
   public addresses:Address[]=[];
-  constructor(private service:ContactServiceService,private route:Router,private _router:ActivatedRoute) { }
+  tenent:Tenent=new Tenent();
+  user:User=new User();
+  contact:Contact=new Contact();
+  constructor(private service:TenentService,private route:Router,private _router:ActivatedRoute) { }
  
   getdata(){
-    this.service.getaddress(this.contactid).subscribe(data=>{ 
-      console.log(this.contactid);
+    this.service.getaddress(this.tenent.id,this.user.id,this.contact.id).subscribe(data=>{ 
+      console.log(data);
       this.addresses=data});
   }
   contactid:any;
   ngOnInit(): void {
-  //this.userid=history.state;
-  this._router.paramMap.subscribe((param:ParamMap)=>{
-    this.contactid = param.get('id');
+    this.tenent=JSON.parse(localStorage.getItem('tenent')||"{}")
+    this.user=JSON.parse(localStorage.getItem('user')||"{}")
+    this.contact=JSON.parse(localStorage.getItem('contact')||"{}")
     this.getdata();
-  })
   }
   editClick(address:Address){
-    this.route.navigateByUrl("contact/"+this.contactid+"/edit-address/"+address.id,{state:address})
+    localStorage.setItem('address',JSON.stringify(address));
+    this.route.navigateByUrl("tenent/user/contact/edit-address");
   }
   deleteClick(addressid:any){
-    this.service.deleteaddress(this.contactid,addressid).
-                 subscribe(data=>{console.log(data),this.getdata()});
-this.getdata();
+   this.service.deleteaddress(this.tenent.id,this.user.id,this.contact.id,addressid).subscribe(
+     res=>{console.log(res)},err=>console.log(err)
+   )
   }
   addClick(){
-    this.route.navigateByUrl("contact/"+this.contactid+"/add-address");
+    this.route.navigateByUrl("tenent/user/contact/add-address");
+  }
+
+  backtocontactlist(){
+    this.route.navigateByUrl("tenent/user/show-contact");
   }
 
 }

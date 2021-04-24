@@ -1,6 +1,7 @@
 ﻿using ContactAddressCore.Model;
 using ContactAndAddressApp_data.Repository;
 using ContactAndAddressWebAPi.DtoModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,8 +11,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace ContactAndAddressWebAPi.Controllers
-{
-    [Route("api/v1/tenent")]
+{   
+    [Route("api/v1/tenents")]
     [ApiController]
     public class AddressController : ControllerBase
     {

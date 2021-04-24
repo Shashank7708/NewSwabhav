@@ -13,6 +13,13 @@ import { ShowAddressComponent } from './AddressDepartment/show-address/show-addr
 import { EditAddressComponent } from './AddressDepartment/edit-address/edit-address.component';
 import { AddAddressComponent } from './AddressDepartment/add-address/add-address.component';
 
+import { TenentRegisterComponent } from './LoginAndRegister/tenent-register/tenent-register.component';
+import { UseRegisterComponent } from './LoginAndRegister/use-register/use-register.component';
+import{TenentService} from './Servcices/tenent.service';
+import { LoginComponent } from './LoginAndRegister/login/login.component';
+import { UserListComponent } from './LoginAndRegister/user-list/user-list.component';
+import { UserEditComponent } from './LoginAndRegister/user-edit/user-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +31,11 @@ import { AddAddressComponent } from './AddressDepartment/add-address/add-address
     ShowAddressComponent,
     EditAddressComponent,
     AddAddressComponent,
+    TenentRegisterComponent,
+    UseRegisterComponent,
+    LoginComponent,
+    UserListComponent,
+    UserEditComponent,
   
   ],
   imports: [
@@ -33,7 +45,7 @@ import { AddAddressComponent } from './AddressDepartment/add-address/add-address
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [TenentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,7 +11,7 @@ namespace ContactAndAddressWebAPi.DtoModel
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Desciption { get; set; }
+        public int TenentStrength { get; set; }
 
     }
 }

@@ -15,5 +15,7 @@ namespace ContactAndAddressWebAPi.DtoModel
         public string Password { get; set; }
         [Required]
         public string Role { get; set; }
+       
+      
     }
 }

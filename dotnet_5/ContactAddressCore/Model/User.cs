@@ -10,12 +10,13 @@ namespace ContactAddressCore.Model
    public class User
     {   [Key]
         public Guid Id { get; set; }
-        [Required]
+       
         public string UserName { get; set; }
-        [Required]
+       
         public string Password { get; set; }
 
         public string Role { get; set; }
+
         [JsonIgnore]
         public virtual Tenent Tenent { get; set; }
 

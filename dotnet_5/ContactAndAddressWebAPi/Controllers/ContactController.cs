@@ -8,10 +8,11 @@ using ContactAndAddressApp_data.Repository;
 using ContactAddressCore.Model;
 using Microsoft.AspNetCore.Cors;
 using ContactAndAddressWebAPi.DtoModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ContactAndAddressWebAPi.Controllers
 {
-   
+  
     [Route("api/v1/tenents")]
     [ApiController]
     public class ContactController : ControllerBase
@@ -23,8 +24,7 @@ namespace ContactAndAddressWebAPi.Controllers
         }
         
         
-        [HttpPost]
-        
+        [HttpPost] 
         [EnableCors("CorsPolicy")]
         [Route("{tenentId}/users/{userId}/contact/register")]
         public ActionResult<Contact> PostContact(DtoContact dtocontact,Guid tenentId,Guid userId)
@@ -32,7 +32,8 @@ namespace ContactAndAddressWebAPi.Controllers
             if (ModelState.IsValid)
             {
                 Contact contact = new Contact { Name = dtocontact.Name, Mobileno = dtocontact.MobileNo };
-                contact.User = this._db.GetUser(tenentId,userId);
+                User user = new User { Id = userId };
+                contact.User = this._db.GetUser(tenentId,user);
                 contact.Id = new Guid();
                 this._db.AddContact(contact);
                 return Ok("Posted Successfully");
@@ -72,7 +73,7 @@ namespace ContactAndAddressWebAPi.Controllers
 
         [HttpPut]
         [EnableCors("CorsPolicy")]
-        [Route("{tenentId}/users/{userId}/contact/{contactId}/update")]
+        [Route("{tenentId}/user/{userId}/contact/{contactId}/update")]
         public ActionResult UpdateContact(Guid tenetId, Guid userId, Guid contactId,DtoContact dtoupdatecontact)
         {
             if (ModelState.IsValid)

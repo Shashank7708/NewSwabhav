@@ -25,22 +25,22 @@ namespace ContactAndAddressApp_data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ContactId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("city")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("contactId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("contactId");
+                    b.HasIndex("ContactId");
 
                     b.ToTable("Address");
                 });
@@ -51,15 +51,15 @@ namespace ContactAndAddressApp_data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("Mobileno")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("mobileno")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -75,8 +75,10 @@ namespace ContactAndAddressApp_data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TenentStrength")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -89,15 +91,16 @@ namespace ContactAndAddressApp_data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("TenentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("password")
-                        .IsRequired()
+                    b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -109,11 +112,11 @@ namespace ContactAndAddressApp_data.Migrations
 
             modelBuilder.Entity("ContactAddressCore.Model.Address", b =>
                 {
-                    b.HasOne("ContactAddressCore.Model.Contact", "contact")
-                        .WithMany("address")
-                        .HasForeignKey("contactId");
+                    b.HasOne("ContactAddressCore.Model.Contact", "Contact")
+                        .WithMany("Address")
+                        .HasForeignKey("ContactId");
 
-                    b.Navigation("contact");
+                    b.Navigation("Contact");
                 });
 
             modelBuilder.Entity("ContactAddressCore.Model.Contact", b =>
@@ -136,7 +139,7 @@ namespace ContactAndAddressApp_data.Migrations
 
             modelBuilder.Entity("ContactAddressCore.Model.Contact", b =>
                 {
-                    b.Navigation("address");
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("ContactAddressCore.Model.Tenent", b =>

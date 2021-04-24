@@ -17,7 +17,7 @@ namespace ContactAndAddressApp_data.Repository
       
         void AddAddress(Address address);
         void AddContact(Contact contact);
-        User GetUser(Guid tenentid, Guid userid);
+        User GetUser(Guid tenentid, User validateuser);
         IQueryable<Address> GetAddresss(Guid tenetid, Guid userid, Guid contactid);
       IQueryable<User> GetUsers(Guid tenetid);
         Contact GetContactAsPerId(Guid tenetid, Guid userid, Guid contactid);
@@ -31,7 +31,8 @@ namespace ContactAndAddressApp_data.Repository
         bool DeleteTenent(Guid tenentId);
         bool UpdateUser(User userToBeUpdated);
         bool UpdateTenent(Tenent tenentToBeUpdated);
-
+        User ValidateUser(string username, string password);
+        Tenent GetTenentbasedonName(string name);
     }
 
 }

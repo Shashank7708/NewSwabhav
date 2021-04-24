@@ -36,7 +36,7 @@
         <button type="button" class="btn btn-danger" (click)="deleteClick(contact.id)"   >Delete</button>
     </td>
     <td>
-        <button type="button" class="btn btn-primary" (click)="getAddress(contact.id)">Address</button>
+        <button type="button" class="btn btn-primary" (click)="getAddress(contact)">Address</button>
     </td>
     </tr>
     
@@ -45,4 +45,6 @@
 </div>
 </div>
 
+<br>
 
+<button class="btn btn-primary" (click)="backtoList()">Back</button>

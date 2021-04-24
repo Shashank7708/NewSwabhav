@@ -3,21 +3,29 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {AddComponent} from './ContactDepartment/add/add.component';
 import{ShowComponent} from "./ContactDepartment/show/show.component";
-import {NotFoundComponentComponent} from "./NotFound/not-found-component/not-found-component.component";
 import {EditComponent} from './ContactDepartment/edit/edit.component';
 import {ShowAddressComponent} from './AddressDepartment/show-address/show-address.component';
 import {EditAddressComponent} from './AddressDepartment/edit-address/edit-address.component';
 import {AddAddressComponent} from './AddressDepartment/add-address/add-address.component';
- const routes: Routes = [
-  {path:"",redirectTo:"/home",pathMatch:"full"},
- 
-  {path:"home",component:ShowComponent},
-  {path:"add-contact",component:AddComponent},
-  {path:"edit-contact/:id",component:EditComponent},
-  {path:":id/show-address",component:ShowAddressComponent},
-  {path:"contact/:id/add-address",component:AddAddressComponent},
-  {path:"contact/:id/edit-address/:id1",component:EditAddressComponent},
+import{UseRegisterComponent} from "./LoginAndRegister/use-register/use-register.component"
+import {TenentRegisterComponent} from './LoginAndRegister/tenent-register/tenent-register.component';
+import { LoginComponent } from './LoginAndRegister/login/login.component';
+import { UserListComponent } from './LoginAndRegister/user-list/user-list.component';
+import {UserEditComponent} from './LoginAndRegister/user-edit/user-edit.component';
 
+ const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path:'home',component:LoginComponent},
+  {path:"tenent/user-list",component:UserListComponent},
+  {path:"tenent/user/show-contact",component:ShowComponent},
+  {path:"tenent/user-register",component:UseRegisterComponent},
+  {path:"tenent/user/edit",component:UserEditComponent},
+  {path:"tenent/user/contact/edit",component:EditComponent},
+  {path:"tenent/user/add-contact",component:AddComponent},
+  {path:"tenent/user/contatc/address",component:ShowAddressComponent},
+  {path:"tenent/user/contact/add-address",component:AddAddressComponent},
+  {path:"tenent/user/contact/edit-address",component:EditAddressComponent},
+  
  // {path:"**",component:NotFoundComponentComponent}
   
 
